@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neufy — Automatización con IA para tu Negocio</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --orange:#F26522;--orange-dark:#D4521A;--orange-light:#FF8A4C;
+  --w100:#FFFFFF;--w80:rgba(255,255,255,.80);--w60:rgba(255,255,255,.60);
+  --w30:rgba(255,255,255,.30);--w15:rgba(255,255,255,.15);--w08:rgba(255,255,255,.08);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--orange);color:var(--w100);overflow-x:hidden}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 60px;
+  background:rgba(242,101,34,.88);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--w15);
+}
+.nav-logo{display:flex;align-items:center;text-decoration:none}
+.nav-logo svg{height:32px;width:auto}
+.nav-links{display:flex;gap:32px}
+.nav-links a{font-size:14px;color:var(--w80);text-decoration:none;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--w100)}
+.nav-cta{
+  background:var(--w100);color:var(--orange);border:none;
+  padding:10px 24px;border-radius:100px;font-size:14px;font-weight:700;
+  cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;
+}
+.nav-cta:hover{background:rgba(255,255,255,.9);transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.15)}
+
+/* HERO */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:140px 60px 100px;position:relative;overflow:hidden;
+}
+.hero::after{
+  content:'';position:absolute;right:-100px;top:-100px;
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.07) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-content{position:relative;z-index:1;max-width:580px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--w15);border:1px solid var(--w30);
+  padding:7px 16px;border-radius:100px;margin-bottom:32px;
+}
+.badge-dot{width:7px;height:7px;background:white;border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
+.hero-badge span{font-size:13px;color:var(--w100);font-weight:600;letter-spacing:.3px}
+.hero h1{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(44px,5.5vw,74px);line-height:1.05;
+  color:var(--w100);margin-bottom:28px;letter-spacing:-2px;
+}
+.hero h1 em{font-style:normal;position:relative;display:inline-block}
+.hero h1 em::after{
+  content:'';position:absolute;bottom:4px;left:0;right:0;
+  height:4px;background:rgba(255,255,255,.35);border-radius:2px;
+}
+.hero p{font-size:18px;color:var(--w80);line-height:1.7;margin-bottom:44px;font-weight:300;max-width:460px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-w{
+  background:var(--w100);color:var(--orange);border:none;
+  padding:15px 30px;border-radius:100px;font-size:15px;font-weight:700;
+  cursor:pointer;transition:all .25s;font-family:'DM Sans',sans-serif;
+  text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+}
+.btn-w:hover{background:rgba(255,255,255,.9);transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,0,0,.18)}
+.btn-o{
+  background:transparent;color:var(--w100);border:1.5px solid var(--w30);
+  padding:15px 30px;border-radius:100px;font-size:15px;font-weight:500;
+  cursor:pointer;transition:all .25s;font-family:'DM Sans',sans-serif;
+  text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+}
+.btn-o:hover{background:var(--w15);border-color:var(--w60)}
+
+/* ROBOT */
+.hero-robot{
+  position:absolute;right:80px;top:50%;transform:translateY(-50%);
+  z-index:1;animation:float 4s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(-50%) translateY(0)}50%{transform:translateY(-50%) translateY(-18px)}}
+
+/* STATS */
+.stats{
+  padding:52px 60px;background:var(--w08);
+  border-top:1px solid var(--w15);border-bottom:1px solid var(--w15);
+  display:flex;justify-content:center;gap:72px;flex-wrap:wrap;
+}
+.stat{text-align:center}
+.stat-n{font-family:'Syne',sans-serif;font-size:42px;font-weight:800;color:var(--w100);line-height:1}
+.stat-l{font-size:13px;color:var(--w60);margin-top:6px;font-weight:400}
+
+/* SECTIONS */
+section{padding:96px 60px;position:relative}
+.lbl{font-size:11px;font-weight:700;letter-spacing:4px;color:var(--w60);text-transform:uppercase;margin-bottom:16px}
+.ttl{font-family:'Syne',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:800;line-height:1.08;letter-spacing:-1.5px;color:var(--w100);margin-bottom:16px}
+.sub{font-size:17px;color:var(--w80);font-weight:300;line-height:1.7;max-width:500px}
+.div{width:48px;height:3px;background:var(--w30);border-radius:2px;margin:20px 0 0}
+
+/* COMO FUNCIONA */
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+.how-card{
+  padding:36px 28px;background:var(--w08);border:1px solid var(--w15);
+  border-radius:22px;transition:all .3s;
+}
+.how-card:hover{background:var(--w15);transform:translateY(-5px)}
+.how-n{font-family:'Syne',sans-serif;font-size:50px;font-weight:800;color:var(--w30);line-height:1;margin-bottom:18px}
+.how-card h3{font-family:'Syne',sans-serif;font-size:19px;font-weight:700;margin-bottom:10px;color:var(--w100)}
+.how-card p{font-size:15px;color:var(--w60);line-height:1.65;font-weight:300}
+
+/* AUTOMATIZACIONES */
+.auto-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:56px}
+.auto-card{
+  padding:32px 28px;background:var(--w08);border:1px solid var(--w15);
+  border-radius:22px;transition:all .3s;display:flex;gap:18px;align-items:flex-start;
+}
+.auto-card:hover{background:var(--w15);transform:translateY(-4px)}
+.auto-icon{font-size:32px;flex-shrink:0;margin-top:2px}
+.auto-card h4{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px;color:var(--w100)}
+.auto-card p{font-size:14px;color:var(--w60);line-height:1.6;font-weight:300}
+
+/* DEMOS */
+.demos-tabs{display:flex;gap:8px;margin:44px 0 36px;flex-wrap:wrap}
+.demo-tab{
+  padding:10px 20px;border-radius:100px;font-size:14px;font-weight:600;
+  cursor:pointer;transition:all .2s;border:1.5px solid var(--w30);
+  background:transparent;color:var(--w80);font-family:'DM Sans',sans-serif;
+}
+.demo-tab.active{background:var(--w100);color:var(--orange);border-color:var(--w100)}
+.demo-tab:hover:not(.active){background:var(--w15);color:var(--w100)}
+.demo-container{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.demo-info h3{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;margin-bottom:14px;color:var(--w100)}
+.demo-info p{font-size:16px;color:var(--w80);line-height:1.7;margin-bottom:24px;font-weight:300}
+.demo-feats{list-style:none;display:flex;flex-direction:column;gap:10px}
+.demo-feats li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--w80)}
+.demo-feats li::before{
+  content:'✓';width:22px;height:22px;background:var(--w15);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--w100);font-size:11px;font-weight:700;flex-shrink:0;
+  line-height:22px;text-align:center;border:1px solid var(--w30);
+}
+
+/* CHAT WIDGET */
+.chat-widget{
+  background:white;border-radius:24px;
+  box-shadow:0 32px 80px rgba(0,0,0,.28);
+  overflow:hidden;max-width:380px;margin-left:auto;
+}
+.chat-hdr{
+  background:var(--orange-dark);padding:15px 18px;
+  display:flex;align-items:center;gap:12px;
+}
+.chat-av{width:36px;height:36px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px}
+.chat-hdr-info h4{color:white;font-size:13px;font-weight:600}
+.chat-hdr-info span{color:rgba(255,255,255,.7);font-size:11px}
+.chat-st{margin-left:auto;display:flex;align-items:center;gap:5px;font-size:11px;color:rgba(255,255,255,.85)}
+.chat-st-dot{width:7px;height:7px;background:#4ADE80;border-radius:50%;animation:pulse 2s infinite}
+.chat-msgs{padding:18px;min-height:300px;display:flex;flex-direction:column;gap:10px;background:#F9F9F9;overflow-y:auto;max-height:300px}
+.msg{max-width:84%;animation:fadeUp .35s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.msg-bot{align-self:flex-start;background:white;border-radius:16px 16px 16px 4px;padding:10px 13px;font-size:13px;color:#1a1a1a;box-shadow:0 2px 8px rgba(0,0,0,.06);line-height:1.5}
+.msg-user{align-self:flex-end;background:var(--orange);border-radius:16px 16px 4px 16px;padding:10px 13px;font-size:13px;color:white;line-height:1.5}
+.msg-crm{
+  align-self:stretch;background:linear-gradient(135deg,#f0fff4,#e6f4ed);
+  border:1px solid #86efac;border-radius:12px;padding:12px 14px;
+  font-size:12px;color:#166534;line-height:1.5;
+  animation:fadeUp .5s ease;
+}
+.msg-crm strong{display:block;font-size:13px;margin-bottom:6px;color:#15803d}
+.msg-crm .crm-row{display:flex;justify-content:space-between;margin-top:3px;font-size:11.5px}
+.typing{align-self:flex-start;background:white;border-radius:16px 16px 16px 4px;padding:12px 15px;box-shadow:0 2px 8px rgba(0,0,0,.06);display:none}
+.typing.show{display:block}
+.typing-dots{display:flex;gap:4px}
+.typing-dots span{width:7px;height:7px;background:#ccc;border-radius:50%;animation:bounce 1.2s infinite}
+.typing-dots span:nth-child(2){animation-delay:.2s}
+.typing-dots span:nth-child(3){animation-delay:.4s}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.chat-inp{padding:13px 15px;border-top:1px solid #eee;display:flex;gap:8px;align-items:center;background:white}
+.chat-inp input{flex:1;border:1px solid #e8e8e8;border-radius:100px;padding:9px 15px;font-size:13px;outline:none;font-family:'DM Sans',sans-serif;color:#999}
+.chat-send{width:34px;height:34px;background:var(--orange);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.chat-send svg{width:15px;height:15px;fill:white}
+
+/* PLANES */
+.plans-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
+.plan-card{
+  border:1.5px solid var(--w15);border-radius:22px;
+  padding:30px 24px;transition:all .3s;position:relative;
+  background:var(--w08);
+}
+.plan-card.featured{background:var(--w100);border-color:var(--w100)}
+.plan-card:hover:not(.featured){background:var(--w15)}
+.plan-badge{
+  position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  background:var(--orange-dark);color:white;padding:4px 16px;
+  border-radius:100px;font-size:11px;font-weight:700;white-space:nowrap;
+  letter-spacing:.5px;text-transform:uppercase;
+}
+.plan-nm{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;color:var(--w60)}
+.plan-card.featured .plan-nm{color:var(--orange)}
+.plan-price{font-family:'Syne',sans-serif;font-size:38px;font-weight:800;line-height:1;margin-bottom:6px;color:var(--w100)}
+.plan-price span{font-size:14px;font-weight:400;color:var(--w60)}
+.plan-card.featured .plan-price{color:var(--orange)}
+.plan-card.featured .plan-price span{color:#999}
+.plan-desc{font-size:12px;color:var(--w60);margin-bottom:22px;line-height:1.55}
+.plan-card.featured .plan-desc{color:#777}
+.plan-feats{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:26px}
+.plan-feats li{display:flex;align-items:flex-start;gap:8px;font-size:12.5px;color:var(--w80);line-height:1.4}
+.plan-card.featured .plan-feats li{color:#444}
+.plan-feats li::before{content:'✓';color:var(--w100);font-weight:700;font-size:11px;margin-top:1px;flex-shrink:0}
+.plan-card.featured .plan-feats li::before{color:var(--orange)}
+.plan-btn{width:100%;padding:12px;border-radius:100px;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;border:none}
+.plan-btn-ow{background:transparent;border:1.5px solid var(--w30);color:var(--w100)}
+.plan-btn-ow:hover{background:var(--w15);border-color:var(--w60)}
+.plan-btn-or{background:var(--orange);color:white}
+.plan-btn-or:hover{background:var(--orange-dark);transform:translateY(-1px)}
+
+/* RUBROS */
+.rubros-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:52px}
+.rubro-card{
+  padding:26px 22px;border:1px solid var(--w15);border-radius:16px;
+  transition:all .25s;background:var(--w08);
+}
+.rubro-card:hover{background:var(--w15);transform:translateY(-4px)}
+.rubro-icon{font-size:26px;margin-bottom:10px}
+.rubro-card h4{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:5px;color:var(--w100)}
+.rubro-card p{font-size:12.5px;color:var(--w60);line-height:1.5}
+
+/* CTA */
+.cta-sec{background:var(--w08);border-top:1px solid var(--w15);text-align:center;padding:96px 60px}
+
+/* FOOTER */
+footer{
+  padding:32px 60px;border-top:1px solid var(--w15);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+}
+footer p{font-size:12px;color:var(--w60)}
+.footer-logo svg{height:26px;width:auto}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav{padding:14px 20px}
+  .nav-links{display:none}
+  .hero{padding:100px 20px 64px}
+  .hero-robot{display:none}
+  section{padding:60px 20px}
+  .how-grid{grid-template-columns:1fr}
+  .auto-grid{grid-template-columns:1fr}
+  .demo-container{grid-template-columns:1fr}
+  .chat-widget{max-width:100%;margin:0}
+  .plans-grid{grid-template-columns:1fr}
+  .plan-card.featured{transform:scale(1)}
+  .rubros-grid{grid-template-columns:1fr 1fr}
+  .stats{padding:36px 20px;gap:32px}
+  footer{flex-direction:column;text-align:center;padding:24px 20px}
+  .hero h1{letter-spacing:-1px}
+}
+@media(max-width:480px){
+  .rubros-grid{grid-template-columns:1fr}
+  .hero-btns{flex-direction:column}
+  .btn-w,.btn-o{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg viewBox="0 0 560 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="560" height="200" rx="32" fill="rgba(255,255,255,0.18)"/>
+      <text x="280" y="148" font-family="Arial Black,sans-serif" font-weight="900" font-size="130" fill="white" text-anchor="middle" letter-spacing="2">NEUFY</text>
+    </svg>
+  </a>
+  <div class="nav-links">
+    <a href="#como-funciona">Cómo funciona</a>
+    <a href="#automatizaciones">Automatizaciones</a>
+    <a href="#demos">Demos</a>
+    <a href="#planes">Planes</a>
+  </div>
+  <button class="nav-cta" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Agendar demo</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">
+      <div class="badge-dot"></div>
+      <span>Automatización con IA para negocios reales</span>
+    </div>
+    <h1>Tu negocio<br>trabaja solo.<br><em>Las 24 horas.</em></h1>
+    <p>Neufy implementa agentes de inteligencia artificial que automatizan la atención, las ventas y la gestión de tu negocio. Nosotros nos encargamos de todo.</p>
+    <div class="hero-btns">
+      <a href="#demos" class="btn-w">Ver demos en vivo →</a>
+      <a href="#planes" class="btn-o">Ver planes</a>
+    </div>
+  </div>
+  <div class="hero-robot">
+    <svg width="290" height="350" viewBox="0 0 290 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="145" y1="26" x2="145" y2="54" stroke="rgba(255,255,255,0.4)" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="145" cy="16" r="12" fill="white" opacity="0.9"/>
+      <circle cx="145" cy="16" r="6" fill="var(--orange)"/>
+      <rect x="65" y="54" width="160" height="114" rx="26" fill="rgba(255,255,255,0.95)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+      <rect x="86" y="86" width="40" height="27" rx="10" fill="var(--orange)"/>
+      <rect x="164" y="86" width="40" height="27" rx="10" fill="var(--orange)"/>
+      <circle cx="98" cy="95" r="5" fill="white" opacity="0.8"/>
+      <circle cx="176" cy="95" r="5" fill="white" opacity="0.8"/>
+      <circle cx="102" cy="91" r="2.5" fill="white"/>
+      <circle cx="180" cy="91" r="2.5" fill="white"/>
+      <rect x="104" y="136" width="82" height="13" rx="6.5" fill="rgba(242,101,34,0.15)"/>
+      <rect x="110" y="139" width="22" height="7" rx="3.5" fill="var(--orange)"/>
+      <rect x="138" y="139" width="14" height="7" rx="3.5" fill="rgba(242,101,34,0.3)"/>
+      <rect x="158" y="139" width="20" height="7" rx="3.5" fill="var(--orange)" opacity="0.6"/>
+      <rect x="126" y="166" width="38" height="17" rx="6" fill="rgba(255,255,255,0.5)"/>
+      <rect x="46" y="182" width="198" height="124" rx="26" fill="rgba(255,255,255,0.95)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+      <rect x="72" y="204" width="146" height="78" rx="13" fill="rgba(242,101,34,0.06)" stroke="rgba(242,101,34,0.15)" stroke-width="1"/>
+      <circle cx="96" cy="226" r="7" fill="var(--orange)" opacity="0.2"/><circle cx="96" cy="226" r="3.5" fill="var(--orange)"/>
+      <rect x="111" y="222" width="82" height="8" rx="4" fill="rgba(242,101,34,0.1)"/>
+      <rect x="111" y="222" width="52" height="8" rx="4" fill="rgba(242,101,34,0.4)"/>
+      <circle cx="96" cy="248" r="7" fill="#4ADE80" opacity="0.2"/><circle cx="96" cy="248" r="3.5" fill="#4ADE80"/>
+      <rect x="111" y="244" width="82" height="8" rx="4" fill="rgba(74,222,128,0.1)"/>
+      <rect x="111" y="244" width="66" height="8" rx="4" fill="rgba(74,222,128,0.35)"/>
+      <circle cx="96" cy="270" r="7" fill="#60A5FA" opacity="0.2"/><circle cx="96" cy="270" r="3.5" fill="#60A5FA"/>
+      <rect x="111" y="266" width="82" height="8" rx="4" fill="rgba(96,165,250,0.1)"/>
+      <rect x="111" y="266" width="38" height="8" rx="4" fill="rgba(96,165,250,0.35)"/>
+      <rect x="8" y="190" width="40" height="82" rx="20" fill="rgba(255,255,255,0.85)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+      <circle cx="28" cy="272" r="14" fill="rgba(255,255,255,0.85)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+      <rect x="242" y="190" width="40" height="82" rx="20" fill="rgba(255,255,255,0.85)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+      <circle cx="262" cy="272" r="14" fill="rgba(255,255,255,0.85)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+      <rect x="90" y="304" width="40" height="42" rx="13" fill="rgba(255,255,255,0.85)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+      <rect x="160" y="304" width="40" height="42" rx="13" fill="rgba(255,255,255,0.85)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+      <rect x="82" y="334" width="56" height="14" rx="7" fill="rgba(255,255,255,0.35)"/>
+      <rect x="152" y="334" width="56" height="14" rx="7" fill="rgba(255,255,255,0.35)"/>
+      <g opacity="0.14" transform="translate(210,336) scale(0.26)">
+        <rect x="0" y="16" width="115" height="17" rx="8.5" fill="white"/>
+        <circle cx="-7" cy="20" r="14" fill="white"/>
+        <rect x="-2" y="4" width="25" height="19" rx="7" fill="white"/>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-n">24/7</div><div class="stat-l">Atención sin interrupciones</div></div>
+  <div class="stat"><div class="stat-n">−80%</div><div class="stat-l">Consultas manuales</div></div>
+  <div class="stat"><div class="stat-n">10 días</div><div class="stat-l">Tiempo mínimo de implementación</div></div>
+  <div class="stat"><div class="stat-n">4 planes</div><div class="stat-l">Para cada tamaño de negocio</div></div>
+</div>
+
+<!-- COMO FUNCIONA -->
+<section id="como-funciona">
+  <div class="lbl">Proceso</div>
+  <div class="ttl">Tres pasos y<br>ya está funcionando.</div>
+  <div class="sub">No necesitás aprender nada. Agendamos una reunión presencial o online, entendemos tu negocio y nos encargamos de todo.</div>
+  <div class="div"></div>
+  <div class="how-grid">
+    <div class="how-card">
+      <div class="how-n">01</div>
+      <h3>Agendamos una reunión</h3>
+      <p>Presencial u online según tu comodidad. Entendemos tu rubro, tus clientes y qué tareas querés automatizar.</p>
+    </div>
+    <div class="how-card">
+      <div class="how-n">02</div>
+      <h3>Implementamos todo</h3>
+      <p>En 10 a 15 días armamos tu agente personalizado. Vos no tocás nada — nosotros configuramos, conectamos y testeamos.</p>
+    </div>
+    <div class="how-card">
+      <div class="how-n">03</div>
+      <h3>Tu negocio trabaja solo</h3>
+      <p>El agente atiende, responde, agenda y registra todo automáticamente. Abrís el panel y ves los resultados en tiempo real.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AUTOMATIZACIONES -->
+<section id="automatizaciones" style="background:var(--w08);border-top:1px solid var(--w15)">
+  <div class="lbl">Qué automatizamos</div>
+  <div class="ttl">Todo lo que hoy<br>hace un humano.</div>
+  <div class="sub">Desde responder mensajes hasta registrar clientes en el CRM — el agente lo hace solo, más rápido y sin errores.</div>
+  <div class="auto-grid">
+    <div class="auto-card">
+      <div class="auto-icon">💬</div>
+      <div>
+        <h4>Atención al cliente 24/7</h4>
+        <p>El agente responde preguntas frecuentes, consultas de precios, horarios y disponibilidad en WhatsApp, Instagram y todos los canales conectados — sin importar la hora.</p>
+      </div>
+    </div>
+    <div class="auto-card">
+      <div class="auto-icon">📅</div>
+      <div>
+        <h4>Turnos y reservas automáticas</h4>
+        <p>Los clientes agendan, modifican y cancelan turnos solos. Todo sincronizado con Google Calendar y registrado automáticamente en el CRM.</p>
+      </div>
+    </div>
+    <div class="auto-card">
+      <div class="auto-icon">🏨</div>
+      <div>
+        <h4>Gestión hotelera integrada</h4>
+        <p>Para hoteles: disponibilidad en tiempo real, reservas automáticas, check-in anticipado, información de servicios y atención al huésped las 24hs.</p>
+      </div>
+    </div>
+    <div class="auto-card">
+      <div class="auto-icon">🗃️</div>
+      <div>
+        <h4>CRM automático con HubSpot</h4>
+        <p>Cada cliente que contacta queda registrado automáticamente en HubSpot con su historial completo — sin que nadie tenga que cargar nada a mano.</p>
+      </div>
+    </div>
+    <div class="auto-card">
+      <div class="auto-icon">📊</div>
+      <div>
+        <h4>Reportes y analytics automáticos</h4>
+        <p>Reportes semanales y mensuales generados solos con métricas de conversaciones, turnos, conversión y clientes nuevos vs recurrentes.</p>
+      </div>
+    </div>
+    <div class="auto-card">
+      <div class="auto-icon">🔄</div>
+      <div>
+        <h4>Recuperación de clientes inactivos</h4>
+        <p>El sistema detecta clientes que no volvieron y les envía mensajes automáticos de reactivación. También hace seguimiento a leads que no compraron.</p>
+      </div>
+    </div>
+    <div class="auto-card">
+      <div class="auto-icon">🚌</div>
+      <div>
+        <h4>Consultas de transporte</h4>
+        <p>Para empresas de colectivos o transporte: horarios, recorridos, precios, reclamos y novedades — todo respondido automáticamente sin operadores.</p>
+      </div>
+    </div>
+    <div class="auto-card">
+      <div class="auto-icon">🏛️</div>
+      <div>
+        <h4>Trámites y turnos municipales</h4>
+        <p>Para municipios y organismos: información de trámites, requisitos, turnos automáticos y derivación a áreas específicas. Reduce el 80% de llamadas entrantes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMOS -->
+<section id="demos">
+  <div class="lbl">Demos en vivo</div>
+  <div class="ttl">Mirá cómo funciona<br>para tu rubro.</div>
+  <div class="sub">Seleccioná tu tipo de negocio y observá una conversación real — incluyendo cómo queda registrado en el CRM automáticamente.</div>
+  <div class="demos-tabs">
+    <button class="demo-tab active" onclick="setDemo('clinica',this)">🏥 Clínica</button>
+    <button class="demo-tab" onclick="setDemo('hotel',this)">🏨 Hotel</button>
+    <button class="demo-tab" onclick="setDemo('restaurante',this)">🍽️ Restaurante</button>
+    <button class="demo-tab" onclick="setDemo('municipalidad',this)">🏛️ Municipalidad</button>
+  </div>
+  <div class="demo-container">
+    <div class="demo-info" id="demo-info">
+      <h3>Clínica Odontológica</h3>
+      <p>El agente responde preguntas, toma turnos y registra automáticamente cada paciente en HubSpot CRM — sin que nadie intervenga.</p>
+      <ul class="demo-feats">
+        <li>Responde preguntas frecuentes al instante</li>
+        <li>Toma turnos sin intervención humana</li>
+        <li>Registra el paciente en HubSpot CRM</li>
+        <li>Envía confirmación automática</li>
+      </ul>
+    </div>
+    <div class="chat-widget">
+      <div class="chat-hdr">
+        <div class="chat-av">🤖</div>
+        <div class="chat-hdr-info">
+          <h4 id="chat-name">Sonrisa Perfecta</h4>
+          <span>Asistente de Neufy</span>
+        </div>
+        <div class="chat-st"><div class="chat-st-dot"></div>En línea</div>
+      </div>
+      <div class="chat-msgs" id="chat-msgs"></div>
+      <div class="chat-inp">
+        <input type="text" placeholder="Escribí tu consulta...">
+        <button class="chat-send"><svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANES -->
+<section id="planes" style="background:var(--w08);border-top:1px solid var(--w15)">
+  <div class="lbl">Precios</div>
+  <div class="ttl">Un plan para<br>cada negocio.</div>
+  <div class="sub">Sin pagos únicos. Sin costos ocultos. Implementación incluida en todos los planes. Precios en USD cobrados en pesos al tipo de cambio del día.</div>
+  <div class="plans-grid">
+
+    <div class="plan-card">
+      <div class="plan-nm">Starter</div>
+      <div class="plan-price">USD 50<span>/mes</span></div>
+      <div class="plan-desc">Para negocios chicos que quieren empezar a automatizar.</div>
+      <ul class="plan-feats">
+        <li>1 agente de IA</li>
+        <li>2 canales: WhatsApp + Instagram</li>
+        <li>300 conversaciones/mes</li>
+        <li>10M tokens IA (GPT-4o mini)</li>
+        <li>1 número WhatsApp</li>
+        <li>CRM básico incluido</li>
+        <li>Reporte mensual</li>
+        <li>Soporte chat 24hs</li>
+        <li>Implementación en 10–15 días</li>
+      </ul>
+      <button class="plan-btn plan-btn-ow">Empezar ahora</button>
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-nm">Growth</div>
+      <div class="plan-price">USD 160<span>/mes</span></div>
+      <div class="plan-desc">Para negocios en crecimiento con mayor volumen de consultas.</div>
+      <ul class="plan-feats">
+        <li>2 agentes de IA</li>
+        <li>WhatsApp + Instagram + Facebook + Web</li>
+        <li>2.000 conversaciones/mes</li>
+        <li>75M tokens IA (GPT-4o mini)</li>
+        <li>3 números WhatsApp</li>
+        <li>HubSpot CRM integrado</li>
+        <li>Google Calendar integrado</li>
+        <li>Analytics avanzados</li>
+        <li>Reporte semanal</li>
+        <li>Soporte prioritario 24hs</li>
+        <li>Implementación en 10–15 días</li>
+      </ul>
+      <button class="plan-btn plan-btn-ow">Empezar ahora</button>
+    </div>
+
+    <div class="plan-card featured">
+      <div class="plan-badge">Más popular</div>
+      <div class="plan-nm">Pro</div>
+      <div class="plan-price">USD 285<span>/mes</span></div>
+      <div class="plan-desc">Para empresas con alto volumen que necesitan automatización completa.</div>
+      <ul class="plan-feats">
+        <li>3 agentes de IA</li>
+        <li>Todos los canales integrados</li>
+        <li>4.000 conversaciones/mes</li>
+        <li>200M tokens IA (GPT-4o mini)</li>
+        <li>10 números WhatsApp</li>
+        <li>HubSpot CRM completo</li>
+        <li>Google Calendar + Drive</li>
+        <li>API completa</li>
+        <li>Recuperación clientes inactivos</li>
+        <li>Reporte semanal en PDF</li>
+        <li>Soporte prioritario 24hs</li>
+        <li>Alta disponibilidad garantizada</li>
+      </ul>
+      <button class="plan-btn plan-btn-or">Quiero este plan</button>
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-nm">Business</div>
+      <div class="plan-price">USD 487<span>/mes</span></div>
+      <div class="plan-desc">Para grandes empresas y organismos que necesitan el máximo poder.</div>
+      <ul class="plan-feats">
+        <li>5 agentes de IA</li>
+        <li>Todos los canales + ilimitados</li>
+        <li>8.000 conversaciones/mes</li>
+        <li>400M tokens IA (GPT-4o mini)</li>
+        <li>WhatsApp ilimitados</li>
+        <li>HubSpot CRM completo</li>
+        <li>Webhooks personalizados</li>
+        <li>Dashboard ejecutivo en tiempo real</li>
+        <li>Reporte ejecutivo semanal PDF</li>
+        <li>Account manager dedicado</li>
+        <li>Reunión mensual de estrategia</li>
+        <li>Soporte 24hs menos de 1 hora</li>
+      </ul>
+      <button class="plan-btn plan-btn-ow">Contactar</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- RUBROS -->
+<section id="rubros">
+  <div class="lbl">Rubros</div>
+  <div class="ttl">Para cualquier<br>tipo de negocio.</div>
+  <div class="sub">Cada agente se configura específicamente para tu rubro. No usamos plantillas genéricas — todo es personalizado desde cero.</div>
+  <div class="rubros-grid">
+    <div class="rubro-card"><div class="rubro-icon">🏥</div><h4>Salud</h4><p>Clínicas, odontología, kinesiología, psicología, veterinarias.</p></div>
+    <div class="rubro-card"><div class="rubro-icon">🏨</div><h4>Hotelería</h4><p>Hoteles, hosterías, apart hotels, alojamientos turísticos.</p></div>
+    <div class="rubro-card"><div class="rubro-icon">🍽️</div><h4>Gastronomía</h4><p>Restaurantes, cafeterías, delivery, catering, bares.</p></div>
+    <div class="rubro-card"><div class="rubro-icon">🏛️</div><h4>Municipios</h4><p>Trámites, turnos, consultas ciudadanas, servicios públicos.</p></div>
+    <div class="rubro-card"><div class="rubro-icon">🚌</div><h4>Transporte</h4><p>Líneas de colectivos, empresas de remises, logística.</p></div>
+    <div class="rubro-card"><div class="rubro-icon">🎓</div><h4>Educación</h4><p>Academias, institutos, profesores particulares, colegios.</p></div>
+    <div class="rubro-card"><div class="rubro-icon">✂️</div><h4>Bienestar</h4><p>Peluquerías, barberías, centros de estética, gimnasios.</p></div>
+    <div class="rubro-card"><div class="rubro-icon">🏠</div><h4>Inmobiliarias</h4><p>Consultas de propiedades, turnos de visita, información.</p></div>
+    <div class="rubro-card"><div class="rubro-icon">⚖️</div><h4>Servicios profesionales</h4><p>Estudios contables, jurídicos, consultoras.</p></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec" id="contacto">
+  <div class="lbl">Empezá hoy</div>
+  <div class="ttl" style="margin-bottom:16px">Tu negocio merece<br>trabajar las 24 horas.</div>
+  <p class="sub" style="margin:0 auto 44px;text-align:center">Agendamos una reunión presencial o online sin costo. Te mostramos exactamente cómo quedaría tu agente en menos de 48 horas.</p>
+  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+    <a href="https://wa.me/5493764000000" class="btn-w">💬 Agendar por WhatsApp</a>
+    <a href="mailto:hola@neufy.com" class="btn-o">Escribirnos un mail</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <svg viewBox="0 0 560 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="560" height="200" rx="32" fill="rgba(255,255,255,0.15)"/>
+      <text x="280" y="148" font-family="Arial Black,sans-serif" font-weight="900" font-size="130" fill="white" text-anchor="middle" letter-spacing="2">NEUFY</text>
+    </svg>
+  </div>
+  <p>© 2026 Neufy · Posadas, Misiones, Argentina</p>
+  <p>Precios en USD · Cobro en pesos al tipo de cambio del día</p>
+</footer>
+
+<script>
+const demos={
+  clinica:{
+    name:'Sonrisa Perfecta',
+    title:'Clínica Odontológica',
+    desc:'El agente responde preguntas, toma turnos y registra automáticamente cada paciente en HubSpot CRM — sin que nadie intervenga.',
+    feats:['Responde preguntas frecuentes al instante','Toma turnos sin intervención humana','Registra el paciente en HubSpot CRM','Envía confirmación automática'],
+    conversation:[
+      {type:'bot',text:'¡Hola! 👋 Soy el asistente de Sonrisa Perfecta. ¿En qué puedo ayudarte hoy?'},
+      {type:'user',text:'Hola, ¿cuánto sale una limpieza dental?'},
+      {type:'bot',text:'La limpieza dental tiene un costo desde $15.000. Incluye detartraje y pulido profesional. ¿Querés sacar un turno?'},
+      {type:'user',text:'Sí, quiero un turno para el jueves'},
+      {type:'bot',text:'¡Perfecto! ¿Cuál es tu nombre completo y un teléfono de contacto?'},
+      {type:'user',text:'Juan García, 3764-123456'},
+      {type:'bot',text:'¡Listo Juan! Tu turno del jueves quedó agendado. Te enviamos la confirmación por WhatsApp. ✅'},
+      {type:'crm',name:'Juan García',servicio:'Limpieza dental',turno:'Jueves',tel:'3764-123456',estado:'Agendado ✅'},
+    ]
+  },
+  hotel:{
+    name:'Hotel Continental',
+    title:'Hotelería',
+    desc:'El agente informa disponibilidad, toma reservas y registra automáticamente cada huésped en el CRM — disponible las 24hs incluso sin recepcionista.',
+    feats:['Consulta disponibilidad en tiempo real','Toma reservas automáticamente','Registra el huésped en HubSpot CRM','Atiende a cualquier hora'],
+    conversation:[
+      {type:'bot',text:'¡Bienvenido al Hotel Continental! 🏨 ¿Cómo puedo ayudarte hoy?'},
+      {type:'user',text:'¿Tienen disponibilidad para este fin de semana?'},
+      {type:'bot',text:'¡Sí! Habitación doble desde $45.000/noche con desayuno incluido. ¿Para cuántas personas?'},
+      {type:'user',text:'Para 2 personas, viernes y sábado'},
+      {type:'bot',text:'2 noches para 2 personas = $90.000 con desayuno. ¿Reservamos? Necesito tu nombre y contacto.'},
+      {type:'user',text:'María López, 3764-654321'},
+      {type:'bot',text:'¡Reserva confirmada, María! Te enviamos los detalles por WhatsApp. ¡Hasta el viernes! 🙌'},
+      {type:'crm',name:'María López',servicio:'Habitación doble 2 noches',turno:'Viernes-Sábado',tel:'3764-654321',estado:'Reservado ✅'},
+    ]
+  },
+  restaurante:{
+    name:'La Costanera',
+    title:'Gastronomía',
+    desc:'El agente toma reservas de mesa, muestra el menú y registra cada cliente automáticamente — especialmente útil en los momentos de mayor demanda.',
+    feats:['Reservas de mesa automáticas','Muestra el menú actualizado','Registra el cliente en HubSpot CRM','Envía confirmación al instante'],
+    conversation:[
+      {type:'bot',text:'¡Hola! Bienvenido a La Costanera 🍽️ ¿Reserva de mesa o consulta sobre el menú?'},
+      {type:'user',text:'Quiero reservar para esta noche'},
+      {type:'bot',text:'¡Perfecto! Tenemos disponibilidad. ¿Para cuántas personas y a qué hora?'},
+      {type:'user',text:'4 personas a las 21hs'},
+      {type:'bot',text:'Bien. ¿Tu nombre y teléfono de contacto para confirmar la reserva?'},
+      {type:'user',text:'Carlos Pérez, 3764-789012'},
+      {type:'bot',text:'¡Reserva confirmada, Carlos! Mesa para 4 a las 21hs. Te esperamos esta noche 🎉'},
+      {type:'crm',name:'Carlos Pérez',servicio:'Mesa para 4 personas',turno:'Hoy 21:00hs',tel:'3764-789012',estado:'Confirmado ✅'},
+    ]
+  },
+  municipalidad:{
+    name:'Municipalidad de Posadas',
+    title:'Municipios y Organismos',
+    desc:'El agente informa trámites, requisitos y otorga turnos automáticamente — reduciendo hasta el 80% de las llamadas entrantes.',
+    feats:['Informa trámites y requisitos','Otorga turnos automáticamente','Registra al ciudadano en el sistema','Disponible 24hs los 7 días'],
+    conversation:[
+      {type:'bot',text:'¡Hola! Soy el asistente digital de la Municipalidad de Posadas 🏛️ ¿En qué te puedo ayudar?'},
+      {type:'user',text:'Necesito habilitar un comercio, ¿qué necesito?'},
+      {type:'bot',text:'Para habilitar un comercio necesitás: DNI, contrato/escritura del local, plano y formulario de solicitud. ¿Querés sacar un turno?'},
+      {type:'user',text:'Sí, quiero un turno para mañana'},
+      {type:'bot',text:'Turno disponible mañana a las 9hs. ¿Tu nombre y DNI para reservarlo?'},
+      {type:'user',text:'Ana Rodríguez, DNI 30.456.789'},
+      {type:'bot',text:'¡Turno confirmado, Ana! Mañana a las 9hs en Ventanilla 3. Llevá la documentación completa. ✅'},
+      {type:'crm',name:'Ana Rodríguez',servicio:'Habilitación comercial',turno:'Mañana 09:00hs',tel:'DNI 30.456.789',estado:'Turno asignado ✅'},
+    ]
+  }
+};
+
+let animating=false;
+
+function setDemo(key,btn){
+  if(animating)return;
+  document.querySelectorAll('.demo-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  const d=demos[key];
+  document.getElementById('demo-info').innerHTML=`
+    <h3>${d.title}</h3>
+    <p>${d.desc}</p>
+    <ul class="demo-feats">${d.feats.map(f=>`<li>${f}</li>`).join('')}</ul>
+  `;
+  document.getElementById('chat-name').textContent=d.name;
+  document.getElementById('chat-msgs').innerHTML='';
+  playConversation(d.conversation);
+}
+
+async function playConversation(conv){
+  animating=true;
+  const msgs=document.getElementById('chat-msgs');
+  msgs.innerHTML='';
+  for(let i=0;i<conv.length;i++){
+    const m=conv[i];
+    await sleep(i===0?500:950);
+    if(m.type==='bot'||m.type==='crm'){
+      const t=document.createElement('div');
+      t.className='typing show';
+      t.innerHTML='<div class="typing-dots"><span></span><span></span><span></span></div>';
+      msgs.appendChild(t);
+      msgs.scrollTop=msgs.scrollHeight;
+      await sleep(m.type==='crm'?1400:1000);
+      msgs.removeChild(t);
+    }
+    const el=document.createElement('div');
+    if(m.type==='crm'){
+      el.className='msg-crm';
+      el.innerHTML=`
+        <strong>🗃️ HubSpot CRM — Registro automático</strong>
+        <div class="crm-row"><span>👤 Nombre</span><span><b>${m.name}</b></span></div>
+        <div class="crm-row"><span>📋 Servicio</span><span>${m.servicio}</span></div>
+        <div class="crm-row"><span>📅 Turno</span><span>${m.turno}</span></div>
+        <div class="crm-row"><span>📞 Contacto</span><span>${m.tel}</span></div>
+        <div class="crm-row"><span>✅ Estado</span><span><b>${m.estado}</b></span></div>
+      `;
+    } else {
+      el.className=`msg msg-${m.type}`;
+      el.textContent=m.text;
+    }
+    msgs.appendChild(el);
+    msgs.scrollTop=msgs.scrollHeight;
+  }
+  animating=false;
+}
+
+function sleep(ms){return new Promise(r=>setTimeout(r,ms))}
+window.addEventListener('load',()=>playConversation(demos.clinica.conversation));
+</script>
+</body>
+</html>
