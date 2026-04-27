@@ -456,6 +456,10 @@ footer p{font-size:12px;color:var(--w60)}
     <button class="demo-tab" onclick="setDemo('hotel',this)">🏨 Hotel</button>
     <button class="demo-tab" onclick="setDemo('restaurante',this)">🍽️ Restaurante</button>
     <button class="demo-tab" onclick="setDemo('municipalidad',this)">🏛️ Municipalidad</button>
+    <button class="demo-tab" onclick="setDemo('colectivos',this)">🚌 Transporte</button>
+    <button class="demo-tab" onclick="setDemo('barberia',this)">✂️ Barbería</button>
+    <button class="demo-tab" onclick="setDemo('inmobiliaria',this)">🏠 Inmobiliaria</button>
+    <button class="demo-tab" onclick="setDemo('academia',this)">🎓 Academia</button>
   </div>
   <div class="demo-container">
     <div class="demo-info" id="demo-info">
@@ -682,6 +686,70 @@ const demos={
       {type:'user',text:'Ana Rodríguez, DNI 30.456.789'},
       {type:'bot',text:'¡Turno confirmado, Ana! Mañana a las 9hs en Ventanilla 3. Llevá la documentación completa. ✅'},
       {type:'crm',name:'Ana Rodríguez',servicio:'Habilitación comercial',turno:'Mañana 09:00hs',tel:'DNI 30.456.789',estado:'Turno asignado ✅'},
+    ]
+  },
+  colectivos:{
+    name:'Crucero del Norte',
+    title:'Empresas de Transporte',
+    desc:'El agente responde consultas de horarios, recorridos y reclamos automáticamente — sin operadores telefónicos y sin esperas.',
+    feats:['Informa horarios y recorridos al instante','Gestiona reclamos automáticamente','Registra cada consulta en HubSpot CRM','Disponible 24hs los 7 días'],
+    conversation:[
+      {type:'bot',text:'¡Hola! Soy el asistente de Crucero del Norte 🚌 ¿En qué puedo ayudarte?'},
+      {type:'user',text:'¿A qué hora sale el colectivo a Corrientes?'},
+      {type:'bot',text:'Los servicios a Corrientes salen a las 7:00, 13:00 y 20:00hs desde la terminal de Posadas. ¿Querés reservar un pasaje?'},
+      {type:'user',text:'Sí, para mañana a las 7hs'},
+      {type:'bot',text:'Perfecto. ¿Tu nombre y DNI para la reserva?'},
+      {type:'user',text:'Roberto Silva, DNI 28.123.456'},
+      {type:'bot',text:'¡Reserva confirmada, Roberto! Servicio mañana 7:00hs a Corrientes. Presentate 30 min antes. ✅'},
+      {type:'crm',name:'Roberto Silva',servicio:'Pasaje Posadas-Corrientes',turno:'Mañana 07:00hs',tel:'DNI 28.123.456',estado:'Reservado ✅'},
+    ]
+  },
+  barberia:{
+    name:'Barbería El Estilo',
+    title:'Barbería y Estética',
+    desc:'El agente toma turnos, informa servicios y precios, y registra cada cliente automáticamente — sin que el barbero tenga que responder mensajes entre cortes.',
+    feats:['Toma turnos automáticamente','Informa servicios y precios','Registra el cliente en HubSpot CRM','Funciona mientras el barbero trabaja'],
+    conversation:[
+      {type:'bot',text:'¡Hola! Bienvenido a Barbería El Estilo ✂️ ¿Querés sacar un turno o consultar precios?'},
+      {type:'user',text:'¿Cuánto sale el corte + barba?'},
+      {type:'bot',text:'El combo corte + barba sale $8.500. También tenemos corte solo por $5.000 y arreglo de barba por $4.000. ¿Sacamos un turno?'},
+      {type:'user',text:'Sí, para mañana a la tarde'},
+      {type:'bot',text:'Tenemos lugar mañana a las 16hs y 17:30hs. ¿Cuál preferís? ¿Y tu nombre?'},
+      {type:'user',text:'A las 16hs, soy Diego Torres'},
+      {type:'bot',text:'¡Listo Diego! Turno mañana a las 16hs para corte + barba. Te esperamos 🔥'},
+      {type:'crm',name:'Diego Torres',servicio:'Corte + Barba',turno:'Mañana 16:00hs',tel:'—',estado:'Agendado ✅'},
+    ]
+  },
+  inmobiliaria:{
+    name:'Inmobiliaria Del Sur',
+    title:'Inmobiliarias',
+    desc:'El agente responde consultas de propiedades, coordina visitas y califica leads automáticamente — sin que los asesores pierdan tiempo en consultas básicas.',
+    feats:['Informa propiedades disponibles','Coordina visitas automáticamente','Califica leads y los pasa al asesor','Registra cada interesado en HubSpot CRM'],
+    conversation:[
+      {type:'bot',text:'¡Hola! Soy el asistente de Inmobiliaria Del Sur 🏠 ¿Buscás alquilar o comprar?'},
+      {type:'user',text:'Busco alquilar un departamento en el centro'},
+      {type:'bot',text:'Tenemos departamentos disponibles en el centro desde $150.000/mes. ¿Cuántas habitaciones necesitás?'},
+      {type:'user',text:'2 habitaciones, para 3 personas'},
+      {type:'bot',text:'Perfecto. Tenemos 3 opciones que se ajustan. ¿Querés coordinar una visita? Necesito tu nombre y contacto.'},
+      {type:'user',text:'Lucía Fernández, 3764-555888'},
+      {type:'bot',text:'¡Genial Lucía! Un asesor te contacta en las próximas horas para coordinar la visita. ✅'},
+      {type:'crm',name:'Lucía Fernández',servicio:'Alquiler 2 hab. centro',turno:'Visita a coordinar',tel:'3764-555888',estado:'Lead calificado ✅'},
+    ]
+  },
+  academia:{
+    name:'Academia Evolución',
+    title:'Academias y Educación',
+    desc:'El agente informa cursos, precios e inscripciones automáticamente — y registra cada interesado en HubSpot para que el equipo haga el seguimiento.',
+    feats:['Informa cursos y horarios disponibles','Gestiona inscripciones automáticamente','Registra el alumno en HubSpot CRM','Envía información de acceso al instante'],
+    conversation:[
+      {type:'bot',text:'¡Hola! Bienvenido a Academia Evolución 🎓 ¿En qué curso estás interesado?'},
+      {type:'user',text:'Quiero saber sobre el curso de inglés'},
+      {type:'bot',text:'Tenemos niveles desde principiante hasta avanzado. Clases 3 veces por semana, $18.000/mes. ¿Arrancás el mes que viene?'},
+      {type:'user',text:'Sí, me interesa. ¿Cómo me inscribo?'},
+      {type:'bot',text:'Te inscribo ahora mismo. ¿Tu nombre completo y WhatsApp?'},
+      {type:'user',text:'Valentina Cruz, 3764-112233'},
+      {type:'bot',text:'¡Inscripción confirmada, Valentina! Te enviamos el acceso y el cronograma por WhatsApp. ¡Bienvenida! 🌟'},
+      {type:'crm',name:'Valentina Cruz',servicio:'Curso de Inglés',turno:'Próximo mes',tel:'3764-112233',estado:'Inscripta ✅'},
     ]
   }
 };
