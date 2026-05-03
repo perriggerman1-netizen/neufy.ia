@@ -639,18 +639,44 @@ document.getElementById('neufy-form').addEventListener('submit', function(e) {
   btn.textContent = 'Enviando...'
   btn.disabled = true
 
-  setTimeout(function() {
-    const planes = {starter:'Starter — USD 50/mes',growth:'Growth — USD 160/mes',pro:'Pro — USD 285/mes',business:'Business — USD 487/mes','no-se':'Sin definir aún'}
-    document.getElementById('neufy-form').style.display = 'none'
-    const s = document.getElementById('form-success')
-    s.style.display = 'block'
-    document.getElementById('success-data').innerHTML = `
-      <span style="display:flex;justify-content:space-between"><span>👤 Nombre</span><b>${nombre}</b></span>
-      <span style="display:flex;justify-content:space-between"><span>🏢 Negocio</span><b>${negocio}</b></span>
-      <span style="display:flex;justify-content:space-between"><span>📱 WhatsApp</span><b>${whatsapp}</b></span>
-      <span style="display:flex;justify-content:space-between"><span>📋 Plan</span><b>${planes[plan]}</b></span>
-    `
-  }, 1200)
+ fetch('http://localhost:8000/leads', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    nombre: nombre,
+    negocio: negocio,
+    whatsapp: whatsapp,
+    plan: plan
+  })
+})
+.then(function(respuesta) {
+  return respuesta.json()
+})
+.then(function(datos) {
+  const planes = {
+    starter:'Starter — USD 50/mes',
+    growth:'Growth — USD 160/mes',
+    pro:'Pro — USD 285/mes',
+    business:'Business — USD 487/mes',
+    'no-se':'Sin definir aún'
+  }
+  document.getElementById('neufy-form').style.display = 'none'
+  const s = document.getElementById('form-success')
+  s.style.display = 'block'
+  document.getElementById('success-data').innerHTML = `
+    <span style="display:flex;justify-content:space-between"><span>👤 Nombre</span><b>${nombre}</b></span>
+    <span style="display:flex;justify-content:space-between"><span>🏢 Negocio</span><b>${negocio}</b></span>
+    <span style="display:flex;justify-content:space-between"><span>📱 WhatsApp</span><b>${whatsapp}</b></span>
+    <span style="display:flex;justify-content:space-between"><span>📋 Plan</span><b>${planes[plan]}</b></span>
+  `
+})
+.catch(function(error) {
+  btn.textContent = 'Quiero mi demo gratis →'
+  btn.disabled = false
+  alert('Hubo un error al enviar. Asegurate de que el servidor esté corriendo.')
+})
 })
 </script>
 </body>
