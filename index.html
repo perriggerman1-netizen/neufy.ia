@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Neufy — Automatización con IA para tu Negocio</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -56,7 +56,7 @@ nav{
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
 .hero-badge span{font-size:13px;color:var(--w100);font-weight:600;letter-spacing:.3px}
 .hero h1{
-  font-family:'Syne',sans-serif;font-weight:800;
+  font-family:'Inter',sans-serif;font-weight:800;
   font-size:clamp(44px,5.5vw,74px);line-height:1.05;
   color:var(--w100);margin-bottom:28px;letter-spacing:-2px;
 }
@@ -96,13 +96,13 @@ nav{
   display:flex;justify-content:center;gap:72px;flex-wrap:wrap;
 }
 .stat{text-align:center}
-.stat-n{font-family:'Syne',sans-serif;font-size:42px;font-weight:800;color:var(--w100);line-height:1}
+.stat-n{font-family:'Inter',sans-serif;font-size:42px;font-weight:800;color:var(--w100);line-height:1}
 .stat-l{font-size:13px;color:var(--w60);margin-top:6px;font-weight:400}
 
 /* SECTIONS */
 section{padding:96px 60px;position:relative}
 .lbl{font-size:11px;font-weight:700;letter-spacing:4px;color:var(--w60);text-transform:uppercase;margin-bottom:16px}
-.ttl{font-family:'Syne',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:800;line-height:1.15;padding-bottom:4px;letter-spacing:-1.5px;color:var(--w100);margin-bottom:16px}
+.ttl{font-family:'Inter',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:800;line-height:1.2;padding-bottom:8px;letter-spacing:-1.5px;color:var(--w100);margin-bottom:16px;overflow:visible}
 .sub{font-size:17px;color:var(--w80);font-weight:300;line-height:1.7;max-width:500px}
 .div{width:48px;height:3px;background:var(--w30);border-radius:2px;margin:20px 0 0}
 
@@ -110,8 +110,8 @@ section{padding:96px 60px;position:relative}
 .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
 .how-card{padding:36px 28px;background:var(--w08);border:1px solid var(--w15);border-radius:22px;transition:all .3s;}
 .how-card:hover{background:var(--w15);transform:translateY(-5px)}
-.how-n{font-family:'Syne',sans-serif;font-size:50px;font-weight:800;color:var(--w30);line-height:1;margin-bottom:18px}
-.how-card h3{font-family:'Syne',sans-serif;font-size:19px;font-weight:700;margin-bottom:10px;color:var(--w100)}
+.how-n{font-family:'Inter',sans-serif;font-size:50px;font-weight:800;color:var(--w30);line-height:1;margin-bottom:18px}
+.how-card h3{font-family:'Inter',sans-serif;font-size:19px;font-weight:700;margin-bottom:10px;color:var(--w100)}
 .how-card p{font-size:15px;color:var(--w60);line-height:1.65;font-weight:300}
 
 /* AUTOMATIZACIONES */
@@ -119,7 +119,7 @@ section{padding:96px 60px;position:relative}
 .auto-card{padding:32px 28px;background:var(--w08);border:1px solid var(--w15);border-radius:22px;transition:all .3s;display:flex;gap:18px;align-items:flex-start;}
 .auto-card:hover{background:var(--w15);transform:translateY(-4px)}
 .auto-icon{font-size:32px;flex-shrink:0;margin-top:2px}
-.auto-card h4{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px;color:var(--w100)}
+.auto-card h4{font-family:'Inter',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px;color:var(--w100)}
 .auto-card p{font-size:14px;color:var(--w60);line-height:1.6;font-weight:300}
 
 /* DEMOS */
@@ -128,7 +128,7 @@ section{padding:96px 60px;position:relative}
 .demo-tab.active{background:var(--w100);color:var(--orange);border-color:var(--w100)}
 .demo-tab:hover:not(.active){background:var(--w15);color:var(--w100)}
 .demo-container{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.demo-info h3{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;margin-bottom:14px;color:var(--w100)}
+.demo-info h3{font-family:'Inter',sans-serif;font-size:28px;font-weight:800;margin-bottom:14px;color:var(--w100)}
 .demo-info p{font-size:16px;color:var(--w80);line-height:1.7;margin-bottom:24px;font-weight:300}
 .demo-feats{list-style:none;display:flex;flex-direction:column;gap:10px}
 .demo-feats li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--w80)}
@@ -168,9 +168,9 @@ section{padding:96px 60px;position:relative}
 .plan-card.featured{background:var(--w100);border-color:var(--w100)}
 .plan-card:hover:not(.featured){background:var(--w15)}
 .plan-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--orange-dark);color:white;padding:4px 16px;border-radius:100px;font-size:11px;font-weight:700;white-space:nowrap;letter-spacing:.5px;text-transform:uppercase;}
-.plan-nm{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;color:var(--w60)}
+.plan-nm{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;color:var(--w60)}
 .plan-card.featured .plan-nm{color:var(--orange)}
-.plan-price{font-family:'Syne',sans-serif;font-size:38px;font-weight:800;line-height:1;margin-bottom:6px;color:var(--w100)}
+.plan-price{font-family:'Inter',sans-serif;font-size:38px;font-weight:800;line-height:1;margin-bottom:6px;color:var(--w100)}
 .plan-price span{font-size:14px;font-weight:400;color:var(--w60)}
 .plan-card.featured .plan-price{color:var(--orange)}
 .plan-card.featured .plan-price span{color:#999}
@@ -192,7 +192,7 @@ section{padding:96px 60px;position:relative}
 .rubro-card{padding:26px 22px;border:1px solid var(--w15);border-radius:16px;transition:all .25s;background:var(--w08);}
 .rubro-card:hover{background:var(--w15);transform:translateY(-4px)}
 .rubro-icon{font-size:26px;margin-bottom:10px}
-.rubro-card h4{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:5px;color:var(--w100)}
+.rubro-card h4{font-family:'Inter',sans-serif;font-size:15px;font-weight:700;margin-bottom:5px;color:var(--w100)}
 .rubro-card p{font-size:12.5px;color:var(--w60);line-height:1.5}
 
 /* FORMULARIO DE CONTACTO */
@@ -215,7 +215,7 @@ section{padding:96px 60px;position:relative}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 
 /* CTA / FOOTER */
-.cta-sec{background:var(--w08);border-top:1px solid var(--w15);text-align:center;padding:96px 60px}
+.cta-sec{background:var(--w08);border-top:1px solid var(--w15);text-align:center;padding:110px 60px 120px}
 footer{padding:32px 60px;border-top:1px solid var(--w15);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
 footer p{font-size:12px;color:var(--w60)}
 .footer-logo svg{height:26px;width:auto}
