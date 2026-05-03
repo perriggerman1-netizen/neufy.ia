@@ -108,10 +108,7 @@ section{padding:96px 60px;position:relative}
 
 /* COMO FUNCIONA */
 .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
-.how-card{
-  padding:36px 28px;background:var(--w08);border:1px solid var(--w15);
-  border-radius:22px;transition:all .3s;
-}
+.how-card{padding:36px 28px;background:var(--w08);border:1px solid var(--w15);border-radius:22px;transition:all .3s;}
 .how-card:hover{background:var(--w15);transform:translateY(-5px)}
 .how-n{font-family:'Syne',sans-serif;font-size:50px;font-weight:800;color:var(--w30);line-height:1;margin-bottom:18px}
 .how-card h3{font-family:'Syne',sans-serif;font-size:19px;font-weight:700;margin-bottom:10px;color:var(--w100)}
@@ -119,10 +116,7 @@ section{padding:96px 60px;position:relative}
 
 /* AUTOMATIZACIONES */
 .auto-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:56px}
-.auto-card{
-  padding:32px 28px;background:var(--w08);border:1px solid var(--w15);
-  border-radius:22px;transition:all .3s;display:flex;gap:18px;align-items:flex-start;
-}
+.auto-card{padding:32px 28px;background:var(--w08);border:1px solid var(--w15);border-radius:22px;transition:all .3s;display:flex;gap:18px;align-items:flex-start;}
 .auto-card:hover{background:var(--w15);transform:translateY(-4px)}
 .auto-icon{font-size:32px;flex-shrink:0;margin-top:2px}
 .auto-card h4{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px;color:var(--w100)}
@@ -130,11 +124,7 @@ section{padding:96px 60px;position:relative}
 
 /* DEMOS */
 .demos-tabs{display:flex;gap:8px;margin:44px 0 36px;flex-wrap:wrap}
-.demo-tab{
-  padding:10px 20px;border-radius:100px;font-size:14px;font-weight:600;
-  cursor:pointer;transition:all .2s;border:1.5px solid var(--w30);
-  background:transparent;color:var(--w80);font-family:'DM Sans',sans-serif;
-}
+.demo-tab{padding:10px 20px;border-radius:100px;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;border:1.5px solid var(--w30);background:transparent;color:var(--w80);font-family:'DM Sans',sans-serif;}
 .demo-tab.active{background:var(--w100);color:var(--orange);border-color:var(--w100)}
 .demo-tab:hover:not(.active){background:var(--w15);color:var(--w100)}
 .demo-container{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
@@ -142,23 +132,11 @@ section{padding:96px 60px;position:relative}
 .demo-info p{font-size:16px;color:var(--w80);line-height:1.7;margin-bottom:24px;font-weight:300}
 .demo-feats{list-style:none;display:flex;flex-direction:column;gap:10px}
 .demo-feats li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--w80)}
-.demo-feats li::before{
-  content:'✓';width:22px;height:22px;background:var(--w15);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  color:var(--w100);font-size:11px;font-weight:700;flex-shrink:0;
-  line-height:22px;text-align:center;border:1px solid var(--w30);
-}
+.demo-feats li::before{content:'✓';width:22px;height:22px;background:var(--w15);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--w100);font-size:11px;font-weight:700;flex-shrink:0;line-height:22px;text-align:center;border:1px solid var(--w30);}
 
 /* CHAT WIDGET */
-.chat-widget{
-  background:white;border-radius:24px;
-  box-shadow:0 32px 80px rgba(0,0,0,.28);
-  overflow:hidden;max-width:380px;margin-left:auto;
-}
-.chat-hdr{
-  background:var(--orange-dark);padding:15px 18px;
-  display:flex;align-items:center;gap:12px;
-}
+.chat-widget{background:white;border-radius:24px;box-shadow:0 32px 80px rgba(0,0,0,.28);overflow:hidden;max-width:380px;margin-left:auto;}
+.chat-hdr{background:var(--orange-dark);padding:15px 18px;display:flex;align-items:center;gap:12px;}
 .chat-av{width:36px;height:36px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px}
 .chat-hdr-info h4{color:white;font-size:13px;font-weight:600}
 .chat-hdr-info span{color:rgba(255,255,255,.7);font-size:11px}
@@ -169,12 +147,7 @@ section{padding:96px 60px;position:relative}
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 .msg-bot{align-self:flex-start;background:white;border-radius:16px 16px 16px 4px;padding:10px 13px;font-size:13px;color:#1a1a1a;box-shadow:0 2px 8px rgba(0,0,0,.06);line-height:1.5}
 .msg-user{align-self:flex-end;background:var(--orange);border-radius:16px 16px 4px 16px;padding:10px 13px;font-size:13px;color:white;line-height:1.5}
-.msg-crm{
-  align-self:stretch;background:linear-gradient(135deg,#f0fff4,#e6f4ed);
-  border:1px solid #86efac;border-radius:12px;padding:12px 14px;
-  font-size:12px;color:#166534;line-height:1.5;
-  animation:fadeUp .5s ease;
-}
+.msg-crm{align-self:stretch;background:linear-gradient(135deg,#f0fff4,#e6f4ed);border:1px solid #86efac;border-radius:12px;padding:12px 14px;font-size:12px;color:#166534;line-height:1.5;animation:fadeUp .5s ease;}
 .msg-crm strong{display:block;font-size:13px;margin-bottom:6px;color:#15803d}
 .msg-crm .crm-row{display:flex;justify-content:space-between;margin-top:3px;font-size:11.5px}
 .typing{align-self:flex-start;background:white;border-radius:16px 16px 16px 4px;padding:12px 15px;box-shadow:0 2px 8px rgba(0,0,0,.06);display:none}
@@ -191,19 +164,10 @@ section{padding:96px 60px;position:relative}
 
 /* PLANES */
 .plans-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
-.plan-card{
-  border:1.5px solid var(--w15);border-radius:22px;
-  padding:30px 24px;transition:all .3s;position:relative;
-  background:var(--w08);
-}
+.plan-card{border:1.5px solid var(--w15);border-radius:22px;padding:30px 24px;transition:all .3s;position:relative;background:var(--w08);}
 .plan-card.featured{background:var(--w100);border-color:var(--w100)}
 .plan-card:hover:not(.featured){background:var(--w15)}
-.plan-badge{
-  position:absolute;top:-12px;left:50%;transform:translateX(-50%);
-  background:var(--orange-dark);color:white;padding:4px 16px;
-  border-radius:100px;font-size:11px;font-weight:700;white-space:nowrap;
-  letter-spacing:.5px;text-transform:uppercase;
-}
+.plan-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--orange-dark);color:white;padding:4px 16px;border-radius:100px;font-size:11px;font-weight:700;white-space:nowrap;letter-spacing:.5px;text-transform:uppercase;}
 .plan-nm{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;color:var(--w60)}
 .plan-card.featured .plan-nm{color:var(--orange)}
 .plan-price{font-family:'Syne',sans-serif;font-size:38px;font-weight:800;line-height:1;margin-bottom:6px;color:var(--w100)}
@@ -225,23 +189,34 @@ section{padding:96px 60px;position:relative}
 
 /* RUBROS */
 .rubros-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:52px}
-.rubro-card{
-  padding:26px 22px;border:1px solid var(--w15);border-radius:16px;
-  transition:all .25s;background:var(--w08);
-}
+.rubro-card{padding:26px 22px;border:1px solid var(--w15);border-radius:16px;transition:all .25s;background:var(--w08);}
 .rubro-card:hover{background:var(--w15);transform:translateY(-4px)}
 .rubro-icon{font-size:26px;margin-bottom:10px}
 .rubro-card h4{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:5px;color:var(--w100)}
 .rubro-card p{font-size:12.5px;color:var(--w60);line-height:1.5}
 
-/* CTA */
-.cta-sec{background:var(--w08);border-top:1px solid var(--w15);text-align:center;padding:96px 60px}
-
-/* FOOTER */
-footer{
-  padding:32px 60px;border-top:1px solid var(--w15);
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+/* FORMULARIO DE CONTACTO */
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:12px;font-weight:600;color:var(--w100);padding-left:4px;letter-spacing:.2px}
+.field input,.field select{
+  width:100%;padding:13px 18px;border-radius:100px;
+  border:1.5px solid var(--w30);background:var(--w08);
+  color:var(--w100);font-size:14px;font-family:'DM Sans',sans-serif;
+  outline:none;transition:border-color .2s,background .2s;
+  appearance:none;-webkit-appearance:none;
 }
+.field input::placeholder{color:var(--w60)}
+.field input:focus,.field select:focus{border-color:var(--w60);background:var(--w15)}
+.field select{color:var(--w60);cursor:pointer}
+.field select.selected{color:var(--w100)}
+.field select option{background:var(--orange-dark);color:white}
+.form-error{font-size:12px;color:#FFB4A0;padding-left:4px;display:none;margin-top:2px}
+.form-error.show{display:block}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* CTA / FOOTER */
+.cta-sec{background:var(--w08);border-top:1px solid var(--w15);text-align:center;padding:96px 60px}
+footer{padding:32px 60px;border-top:1px solid var(--w15);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
 footer p{font-size:12px;color:var(--w60)}
 .footer-logo svg{height:26px;width:auto}
 
@@ -262,6 +237,8 @@ footer p{font-size:12px;color:var(--w60)}
   .stats{padding:36px 20px;gap:32px}
   footer{flex-direction:column;text-align:center;padding:24px 20px}
   .hero h1{letter-spacing:-1px}
+  .form-row{grid-template-columns:1fr}
+  .cta-sec{padding:60px 20px}
 }
 @media(max-width:480px){
   .rubros-grid{grid-template-columns:1fr}
@@ -339,11 +316,6 @@ footer p{font-size:12px;color:var(--w60)}
       <rect x="160" y="304" width="40" height="42" rx="13" fill="rgba(255,255,255,0.85)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
       <rect x="82" y="334" width="56" height="14" rx="7" fill="rgba(255,255,255,0.35)"/>
       <rect x="152" y="334" width="56" height="14" rx="7" fill="rgba(255,255,255,0.35)"/>
-      <g opacity="0.14" transform="translate(210,336) scale(0.26)">
-        <rect x="0" y="16" width="115" height="17" rx="8.5" fill="white"/>
-        <circle cx="-7" cy="20" r="14" fill="white"/>
-        <rect x="-2" y="4" width="25" height="19" rx="7" fill="white"/>
-      </g>
     </svg>
   </div>
 </section>
@@ -387,62 +359,14 @@ footer p{font-size:12px;color:var(--w60)}
   <div class="ttl">Todo lo que hoy<br>hace un humano.</div>
   <div class="sub">Desde responder mensajes hasta registrar clientes en el CRM — el agente lo hace solo, más rápido y sin errores.</div>
   <div class="auto-grid">
-    <div class="auto-card">
-      <div class="auto-icon">💬</div>
-      <div>
-        <h4>Atención al cliente 24/7</h4>
-        <p>El agente responde preguntas frecuentes, consultas de precios, horarios y disponibilidad en WhatsApp, Instagram y todos los canales conectados — sin importar la hora.</p>
-      </div>
-    </div>
-    <div class="auto-card">
-      <div class="auto-icon">📅</div>
-      <div>
-        <h4>Turnos y reservas automáticas</h4>
-        <p>Los clientes agendan, modifican y cancelan turnos solos. Todo sincronizado con Google Calendar y registrado automáticamente en el CRM.</p>
-      </div>
-    </div>
-    <div class="auto-card">
-      <div class="auto-icon">🏨</div>
-      <div>
-        <h4>Gestión hotelera integrada</h4>
-        <p>Para hoteles: disponibilidad en tiempo real, reservas automáticas, check-in anticipado, información de servicios y atención al huésped las 24hs.</p>
-      </div>
-    </div>
-    <div class="auto-card">
-      <div class="auto-icon">🗃️</div>
-      <div>
-        <h4>CRM automático con HubSpot</h4>
-        <p>Cada cliente que contacta queda registrado automáticamente en HubSpot con su historial completo — sin que nadie tenga que cargar nada a mano.</p>
-      </div>
-    </div>
-    <div class="auto-card">
-      <div class="auto-icon">📊</div>
-      <div>
-        <h4>Reportes y analytics automáticos</h4>
-        <p>Reportes semanales y mensuales generados solos con métricas de conversaciones, turnos, conversión y clientes nuevos vs recurrentes.</p>
-      </div>
-    </div>
-    <div class="auto-card">
-      <div class="auto-icon">🔄</div>
-      <div>
-        <h4>Recuperación de clientes inactivos</h4>
-        <p>El sistema detecta clientes que no volvieron y les envía mensajes automáticos de reactivación. También hace seguimiento a leads que no compraron.</p>
-      </div>
-    </div>
-    <div class="auto-card">
-      <div class="auto-icon">🚌</div>
-      <div>
-        <h4>Consultas de transporte</h4>
-        <p>Para empresas de colectivos o transporte: horarios, recorridos, precios, reclamos y novedades — todo respondido automáticamente sin operadores.</p>
-      </div>
-    </div>
-    <div class="auto-card">
-      <div class="auto-icon">🏛️</div>
-      <div>
-        <h4>Trámites y turnos municipales</h4>
-        <p>Para municipios y organismos: información de trámites, requisitos, turnos automáticos y derivación a áreas específicas. Reduce el 80% de llamadas entrantes.</p>
-      </div>
-    </div>
+    <div class="auto-card"><div class="auto-icon">💬</div><div><h4>Atención al cliente 24/7</h4><p>El agente responde preguntas frecuentes, consultas de precios, horarios y disponibilidad en WhatsApp, Instagram y todos los canales conectados — sin importar la hora.</p></div></div>
+    <div class="auto-card"><div class="auto-icon">📅</div><div><h4>Turnos y reservas automáticas</h4><p>Los clientes agendan, modifican y cancelan turnos solos. Todo sincronizado con Google Calendar y registrado automáticamente en el CRM.</p></div></div>
+    <div class="auto-card"><div class="auto-icon">🏨</div><div><h4>Gestión hotelera integrada</h4><p>Para hoteles: disponibilidad en tiempo real, reservas automáticas, check-in anticipado, información de servicios y atención al huésped las 24hs.</p></div></div>
+    <div class="auto-card"><div class="auto-icon">🗃️</div><div><h4>CRM automático con HubSpot</h4><p>Cada cliente que contacta queda registrado automáticamente en HubSpot con su historial completo — sin que nadie tenga que cargar nada a mano.</p></div></div>
+    <div class="auto-card"><div class="auto-icon">📊</div><div><h4>Reportes y analytics automáticos</h4><p>Reportes semanales y mensuales generados solos con métricas de conversaciones, turnos, conversión y clientes nuevos vs recurrentes.</p></div></div>
+    <div class="auto-card"><div class="auto-icon">🔄</div><div><h4>Recuperación de clientes inactivos</h4><p>El sistema detecta clientes que no volvieron y les envía mensajes automáticos de reactivación. También hace seguimiento a leads que no compraron.</p></div></div>
+    <div class="auto-card"><div class="auto-icon">🚌</div><div><h4>Consultas de transporte</h4><p>Para empresas de colectivos o transporte: horarios, recorridos, precios, reclamos y novedades — todo respondido automáticamente sin operadores.</p></div></div>
+    <div class="auto-card"><div class="auto-icon">🏛️</div><div><h4>Trámites y turnos municipales</h4><p>Para municipios y organismos: información de trámites, requisitos, turnos automáticos y derivación a áreas específicas. Reduce el 80% de llamadas entrantes.</p></div></div>
   </div>
 </section>
 
@@ -496,88 +420,54 @@ footer p{font-size:12px;color:var(--w60)}
   <div class="ttl">Un plan para<br>cada negocio.</div>
   <div class="sub">Sin pagos únicos. Sin costos ocultos. Implementación incluida en todos los planes. Precios en USD cobrados en pesos al tipo de cambio del día.</div>
   <div class="plans-grid">
-
     <div class="plan-card">
       <div class="plan-nm">Starter</div>
       <div class="plan-price">USD 50<span>/mes</span></div>
       <div class="plan-desc">Para negocios chicos que quieren empezar a automatizar.</div>
       <ul class="plan-feats">
-        <li>1 agente de IA</li>
-        <li>2 canales: WhatsApp + Instagram</li>
-        <li>300 conversaciones/mes</li>
-        <li>10M tokens IA (GPT-4o mini)</li>
-        <li>1 número WhatsApp</li>
-        <li>CRM básico incluido</li>
-        <li>Reporte mensual</li>
-        <li>Soporte chat 24hs</li>
-        <li>Implementación en 10–15 días</li>
+        <li>1 agente de IA</li><li>2 canales: WhatsApp + Instagram</li><li>300 conversaciones/mes</li>
+        <li>10M tokens IA (GPT-4o mini)</li><li>1 número WhatsApp</li><li>CRM básico incluido</li>
+        <li>Reporte mensual</li><li>Soporte chat 24hs</li><li>Implementación en 10–15 días</li>
       </ul>
-      <button class="plan-btn plan-btn-ow">Empezar ahora</button>
+      <button class="plan-btn plan-btn-ow" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Empezar ahora</button>
     </div>
-
     <div class="plan-card">
       <div class="plan-nm">Growth</div>
       <div class="plan-price">USD 160<span>/mes</span></div>
       <div class="plan-desc">Para negocios en crecimiento con mayor volumen de consultas.</div>
       <ul class="plan-feats">
-        <li>2 agentes de IA</li>
-        <li>WhatsApp + Instagram + Facebook + Web</li>
-        <li>2.000 conversaciones/mes</li>
-        <li>75M tokens IA (GPT-4o mini)</li>
-        <li>2 números WhatsApp</li>
-        <li>HubSpot CRM integrado</li>
-        <li>Google Calendar integrado</li>
-        <li>Analytics avanzados</li>
-        <li>Reporte semanal</li>
-        <li>Soporte prioritario 24hs</li>
-        <li>Implementación en 10–15 días</li>
+        <li>2 agentes de IA</li><li>WhatsApp + Instagram + Facebook + Web</li><li>2.000 conversaciones/mes</li>
+        <li>75M tokens IA (GPT-4o mini)</li><li>2 números WhatsApp</li><li>HubSpot CRM integrado</li>
+        <li>Google Calendar integrado</li><li>Analytics avanzados</li><li>Reporte semanal</li>
+        <li>Soporte prioritario 24hs</li><li>Implementación en 10–15 días</li>
       </ul>
-      <button class="plan-btn plan-btn-ow">Empezar ahora</button>
+      <button class="plan-btn plan-btn-ow" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Empezar ahora</button>
     </div>
-
     <div class="plan-card featured">
       <div class="plan-badge">Más popular</div>
       <div class="plan-nm">Pro</div>
       <div class="plan-price">USD 285<span>/mes</span></div>
       <div class="plan-desc">Para empresas con alto volumen que necesitan automatización completa.</div>
       <ul class="plan-feats">
-        <li>3 agentes de IA</li>
-        <li>Todos los canales integrados</li>
-        <li>4.000 conversaciones/mes</li>
-        <li>200M tokens IA (GPT-4o mini)</li>
-        <li>3 números WhatsApp</li>
-        <li>HubSpot CRM completo</li>
-        <li>Google Calendar + Drive</li>
-        <li>API completa</li>
-        <li>Recuperación clientes inactivos</li>
-        <li>Reporte semanal en PDF</li>
-        <li>Soporte prioritario 24hs</li>
-        <li>Alta disponibilidad garantizada</li>
+        <li>3 agentes de IA</li><li>Todos los canales integrados</li><li>4.000 conversaciones/mes</li>
+        <li>200M tokens IA (GPT-4o mini)</li><li>3 números WhatsApp</li><li>HubSpot CRM completo</li>
+        <li>Google Calendar + Drive</li><li>API completa</li><li>Recuperación clientes inactivos</li>
+        <li>Reporte semanal en PDF</li><li>Soporte prioritario 24hs</li><li>Alta disponibilidad garantizada</li>
       </ul>
-      <button class="plan-btn plan-btn-or">Quiero este plan</button>
+      <button class="plan-btn plan-btn-or" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Quiero este plan</button>
     </div>
-
     <div class="plan-card">
       <div class="plan-nm">Business</div>
       <div class="plan-price">USD 487<span>/mes</span></div>
       <div class="plan-desc">Para grandes empresas y organismos que necesitan el máximo poder.</div>
       <ul class="plan-feats">
-        <li>5 agentes de IA</li>
-        <li>Todos los canales + ilimitados</li>
-        <li>8.000 conversaciones/mes</li>
-        <li>400M tokens IA (GPT-4o mini)</li>
-        <li>5 números WhatsApp</li>
-        <li>HubSpot CRM completo</li>
-        <li>Webhooks personalizados</li>
-        <li>Dashboard ejecutivo en tiempo real</li>
-        <li>Reporte ejecutivo semanal PDF</li>
-        <li>Account manager dedicado</li>
-        <li>Reunión mensual de estrategia</li>
-        <li>Soporte 24hs menos de 1 hora</li>
+        <li>5 agentes de IA</li><li>Todos los canales + ilimitados</li><li>8.000 conversaciones/mes</li>
+        <li>400M tokens IA (GPT-4o mini)</li><li>5 números WhatsApp</li><li>HubSpot CRM completo</li>
+        <li>Webhooks personalizados</li><li>Dashboard ejecutivo en tiempo real</li><li>Reporte ejecutivo semanal PDF</li>
+        <li>Account manager dedicado</li><li>Reunión mensual de estrategia</li><li>Soporte 24hs menos de 1 hora</li>
       </ul>
-      <button class="plan-btn plan-btn-ow">Contactar</button>
+      <button class="plan-btn plan-btn-ow" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Contactar</button>
     </div>
-
   </div>
 </section>
 
@@ -599,15 +489,60 @@ footer p{font-size:12px;color:var(--w60)}
   </div>
 </section>
 
-<!-- CTA -->
+<!-- CONTACTO -->
 <section class="cta-sec" id="contacto">
-  <div class="lbl">Empezá hoy</div>
-  <div class="ttl" style="margin-bottom:16px">Tu negocio merece<br>trabajar las 24 horas.</div>
-  <p class="sub" style="margin:0 auto 44px;text-align:center">Agendamos una reunión presencial o online sin costo. Te mostramos exactamente cómo quedaría tu agente en menos de 48 horas.</p>
-  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-    <a href="https://wa.me/543491561753" class="btn-w">💬 Agendar por WhatsApp</a>
-    <a href="https://instagram.com/neufy.ia" class="btn-o">📸 Seguinos en Instagram</a>
+  <div class="lbl">Contacto</div>
+  <div class="ttl" style="margin-bottom:16px">Agendá tu demo<br>sin costo</div>
+  <p class="sub" style="margin:0 auto 44px;text-align:center">Completá el formulario y te contactamos en menos de 24hs para mostrarte exactamente cómo quedaría tu agente.</p>
+
+  <form id="neufy-form" novalidate style="max-width:480px;margin:0 auto;display:flex;flex-direction:column;gap:16px">
+
+    <div class="form-row">
+      <div class="field">
+        <label for="input-nombre">Tu nombre</label>
+        <input type="text" id="input-nombre" placeholder="Ej: Juan García">
+        <span class="form-error" id="err-nombre">Ingresá tu nombre</span>
+      </div>
+      <div class="field">
+        <label for="input-negocio">Nombre del negocio</label>
+        <input type="text" id="input-negocio" placeholder="Ej: Clínica San Martín">
+        <span class="form-error" id="err-negocio">Ingresá tu negocio</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="input-whatsapp">WhatsApp</label>
+      <input type="tel" id="input-whatsapp" placeholder="Ej: 3764-123456">
+      <span class="form-error" id="err-whatsapp">Ingresá un número válido</span>
+    </div>
+
+    <div class="field">
+      <label for="input-plan">¿Qué plan te interesa?</label>
+      <select id="input-plan">
+        <option value="" disabled selected>Seleccioná un plan</option>
+        <option value="starter">Starter — USD 50/mes</option>
+        <option value="growth">Growth — USD 160/mes</option>
+        <option value="pro">Pro — USD 285/mes</option>
+        <option value="business">Business — USD 487/mes</option>
+        <option value="no-se">No sé todavía, quiero info</option>
+      </select>
+      <span class="form-error" id="err-plan">Seleccioná un plan</span>
+    </div>
+
+    <button class="btn-w" type="submit" id="form-btn" style="justify-content:center">
+      Quiero mi demo gratis →
+    </button>
+    <p style="font-size:12px;color:var(--w60);text-align:center">Sin compromiso. Te respondemos en menos de 24hs.</p>
+
+  </form>
+
+  <div id="form-success" style="display:none;max-width:480px;margin:0 auto;background:var(--w15);border:1px solid var(--w30);border-radius:22px;padding:40px 32px;text-align:center">
+    <div style="font-size:44px;margin-bottom:16px">🎉</div>
+    <div class="ttl" style="font-size:26px;margin-bottom:10px">¡Solicitud enviada!</div>
+    <p class="sub" style="text-align:center;margin:0 auto 0">Te contactamos en menos de 24hs para agendar tu demo.</p>
+    <div id="success-data" style="background:var(--w08);border-radius:14px;padding:16px 20px;margin-top:20px;text-align:left;font-size:13px;color:var(--w80);display:flex;flex-direction:column;gap:8px"></div>
   </div>
+
 </section>
 
 <!-- FOOTER -->
@@ -623,154 +558,29 @@ footer p{font-size:12px;color:var(--w60)}
 </footer>
 
 <script>
+// ─── DEMOS ───────────────────────────────────────────────
 const demos={
-  clinica:{
-    name:'Sonrisa Perfecta',
-    title:'Clínica Odontológica',
-    desc:'El agente responde preguntas, toma turnos y registra automáticamente cada paciente en HubSpot CRM — sin que nadie intervenga.',
-    feats:['Responde preguntas frecuentes al instante','Toma turnos sin intervención humana','Registra el paciente en HubSpot CRM','Envía confirmación automática'],
-    conversation:[
-      {type:'bot',text:'¡Hola! 👋 Soy el asistente de Sonrisa Perfecta. ¿En qué puedo ayudarte hoy?'},
-      {type:'user',text:'Hola, ¿cuánto sale una limpieza dental?'},
-      {type:'bot',text:'La limpieza dental tiene un costo desde $15.000. Incluye detartraje y pulido profesional. ¿Querés sacar un turno?'},
-      {type:'user',text:'Sí, quiero un turno para el jueves'},
-      {type:'bot',text:'¡Perfecto! ¿Cuál es tu nombre completo y un teléfono de contacto?'},
-      {type:'user',text:'Juan García, 3764-123456'},
-      {type:'bot',text:'¡Listo Juan! Tu turno del jueves quedó agendado. Te enviamos la confirmación por WhatsApp. ✅'},
-      {type:'crm',name:'Juan García',servicio:'Limpieza dental',turno:'Jueves',tel:'3764-123456',estado:'Agendado ✅'},
-    ]
-  },
-  hotel:{
-    name:'Hotel Continental',
-    title:'Hotelería',
-    desc:'El agente informa disponibilidad, toma reservas y registra automáticamente cada huésped en el CRM — disponible las 24hs incluso sin recepcionista.',
-    feats:['Consulta disponibilidad en tiempo real','Toma reservas automáticamente','Registra el huésped en HubSpot CRM','Atiende a cualquier hora'],
-    conversation:[
-      {type:'bot',text:'¡Bienvenido al Hotel Continental! 🏨 ¿Cómo puedo ayudarte hoy?'},
-      {type:'user',text:'¿Tienen disponibilidad para este fin de semana?'},
-      {type:'bot',text:'¡Sí! Habitación doble desde $45.000/noche con desayuno incluido. ¿Para cuántas personas?'},
-      {type:'user',text:'Para 2 personas, viernes y sábado'},
-      {type:'bot',text:'2 noches para 2 personas = $90.000 con desayuno. ¿Reservamos? Necesito tu nombre y contacto.'},
-      {type:'user',text:'María López, 3764-654321'},
-      {type:'bot',text:'¡Reserva confirmada, María! Te enviamos los detalles por WhatsApp. ¡Hasta el viernes! 🙌'},
-      {type:'crm',name:'María López',servicio:'Habitación doble 2 noches',turno:'Viernes-Sábado',tel:'3764-654321',estado:'Reservado ✅'},
-    ]
-  },
-  restaurante:{
-    name:'La Costanera',
-    title:'Gastronomía',
-    desc:'El agente toma reservas de mesa, muestra el menú y registra cada cliente automáticamente — especialmente útil en los momentos de mayor demanda.',
-    feats:['Reservas de mesa automáticas','Muestra el menú actualizado','Registra el cliente en HubSpot CRM','Envía confirmación al instante'],
-    conversation:[
-      {type:'bot',text:'¡Hola! Bienvenido a La Costanera 🍽️ ¿Reserva de mesa o consulta sobre el menú?'},
-      {type:'user',text:'Quiero reservar para esta noche'},
-      {type:'bot',text:'¡Perfecto! Tenemos disponibilidad. ¿Para cuántas personas y a qué hora?'},
-      {type:'user',text:'4 personas a las 21hs'},
-      {type:'bot',text:'Bien. ¿Tu nombre y teléfono de contacto para confirmar la reserva?'},
-      {type:'user',text:'Carlos Pérez, 3764-789012'},
-      {type:'bot',text:'¡Reserva confirmada, Carlos! Mesa para 4 a las 21hs. Te esperamos esta noche 🎉'},
-      {type:'crm',name:'Carlos Pérez',servicio:'Mesa para 4 personas',turno:'Hoy 21:00hs',tel:'3764-789012',estado:'Confirmado ✅'},
-    ]
-  },
-  municipalidad:{
-    name:'Municipalidad de Posadas',
-    title:'Municipios y Organismos',
-    desc:'El agente informa trámites, requisitos y otorga turnos automáticamente — reduciendo hasta el 80% de las llamadas entrantes.',
-    feats:['Informa trámites y requisitos','Otorga turnos automáticamente','Registra al ciudadano en el sistema','Disponible 24hs los 7 días'],
-    conversation:[
-      {type:'bot',text:'¡Hola! Soy el asistente digital de la Municipalidad de Posadas 🏛️ ¿En qué te puedo ayudar?'},
-      {type:'user',text:'Necesito habilitar un comercio, ¿qué necesito?'},
-      {type:'bot',text:'Para habilitar un comercio necesitás: DNI, contrato/escritura del local, plano y formulario de solicitud. ¿Querés sacar un turno?'},
-      {type:'user',text:'Sí, quiero un turno para mañana'},
-      {type:'bot',text:'Turno disponible mañana a las 9hs. ¿Tu nombre y DNI para reservarlo?'},
-      {type:'user',text:'Ana Rodríguez, DNI 30.456.789'},
-      {type:'bot',text:'¡Turno confirmado, Ana! Mañana a las 9hs en Ventanilla 3. Llevá la documentación completa. ✅'},
-      {type:'crm',name:'Ana Rodríguez',servicio:'Habilitación comercial',turno:'Mañana 09:00hs',tel:'DNI 30.456.789',estado:'Turno asignado ✅'},
-    ]
-  },
-  colectivos:{
-    name:'Crucero del Norte',
-    title:'Empresas de Transporte',
-    desc:'El agente responde consultas de horarios, recorridos y reclamos automáticamente — sin operadores telefónicos y sin esperas.',
-    feats:['Informa horarios y recorridos al instante','Gestiona reclamos automáticamente','Registra cada consulta en HubSpot CRM','Disponible 24hs los 7 días'],
-    conversation:[
-      {type:'bot',text:'¡Hola! Soy el asistente de Crucero del Norte 🚌 ¿En qué puedo ayudarte?'},
-      {type:'user',text:'¿A qué hora sale el colectivo a Corrientes?'},
-      {type:'bot',text:'Los servicios a Corrientes salen a las 7:00, 13:00 y 20:00hs desde la terminal de Posadas. ¿Querés reservar un pasaje?'},
-      {type:'user',text:'Sí, para mañana a las 7hs'},
-      {type:'bot',text:'Perfecto. ¿Tu nombre y DNI para la reserva?'},
-      {type:'user',text:'Roberto Silva, DNI 28.123.456'},
-      {type:'bot',text:'¡Reserva confirmada, Roberto! Servicio mañana 7:00hs a Corrientes. Presentate 30 min antes. ✅'},
-      {type:'crm',name:'Roberto Silva',servicio:'Pasaje Posadas-Corrientes',turno:'Mañana 07:00hs',tel:'DNI 28.123.456',estado:'Reservado ✅'},
-    ]
-  },
-  barberia:{
-    name:'Barbería El Estilo',
-    title:'Barbería y Estética',
-    desc:'El agente toma turnos, informa servicios y precios, y registra cada cliente automáticamente — sin que el barbero tenga que responder mensajes entre cortes.',
-    feats:['Toma turnos automáticamente','Informa servicios y precios','Registra el cliente en HubSpot CRM','Funciona mientras el barbero trabaja'],
-    conversation:[
-      {type:'bot',text:'¡Hola! Bienvenido a Barbería El Estilo ✂️ ¿Querés sacar un turno o consultar precios?'},
-      {type:'user',text:'¿Cuánto sale el corte + barba?'},
-      {type:'bot',text:'El combo corte + barba sale $8.500. También tenemos corte solo por $5.000 y arreglo de barba por $4.000. ¿Sacamos un turno?'},
-      {type:'user',text:'Sí, para mañana a la tarde'},
-      {type:'bot',text:'Tenemos lugar mañana a las 16hs y 17:30hs. ¿Cuál preferís? ¿Y tu nombre?'},
-      {type:'user',text:'A las 16hs, soy Diego Torres'},
-      {type:'bot',text:'¡Listo Diego! Turno mañana a las 16hs para corte + barba. Te esperamos 🔥'},
-      {type:'crm',name:'Diego Torres',servicio:'Corte + Barba',turno:'Mañana 16:00hs',tel:'—',estado:'Agendado ✅'},
-    ]
-  },
-  inmobiliaria:{
-    name:'Inmobiliaria Del Sur',
-    title:'Inmobiliarias',
-    desc:'El agente responde consultas de propiedades, coordina visitas y califica leads automáticamente — sin que los asesores pierdan tiempo en consultas básicas.',
-    feats:['Informa propiedades disponibles','Coordina visitas automáticamente','Califica leads y los pasa al asesor','Registra cada interesado en HubSpot CRM'],
-    conversation:[
-      {type:'bot',text:'¡Hola! Soy el asistente de Inmobiliaria Del Sur 🏠 ¿Buscás alquilar o comprar?'},
-      {type:'user',text:'Busco alquilar un departamento en el centro'},
-      {type:'bot',text:'Tenemos departamentos disponibles en el centro desde $150.000/mes. ¿Cuántas habitaciones necesitás?'},
-      {type:'user',text:'2 habitaciones, para 3 personas'},
-      {type:'bot',text:'Perfecto. Tenemos 3 opciones que se ajustan. ¿Querés coordinar una visita? Necesito tu nombre y contacto.'},
-      {type:'user',text:'Lucía Fernández, 3764-555888'},
-      {type:'bot',text:'¡Genial Lucía! Un asesor te contacta en las próximas horas para coordinar la visita. ✅'},
-      {type:'crm',name:'Lucía Fernández',servicio:'Alquiler 2 hab. centro',turno:'Visita a coordinar',tel:'3764-555888',estado:'Lead calificado ✅'},
-    ]
-  },
-  academia:{
-    name:'Academia Evolución',
-    title:'Academias y Educación',
-    desc:'El agente informa cursos, precios e inscripciones automáticamente — y registra cada interesado en HubSpot para que el equipo haga el seguimiento.',
-    feats:['Informa cursos y horarios disponibles','Gestiona inscripciones automáticamente','Registra el alumno en HubSpot CRM','Envía información de acceso al instante'],
-    conversation:[
-      {type:'bot',text:'¡Hola! Bienvenido a Academia Evolución 🎓 ¿En qué curso estás interesado?'},
-      {type:'user',text:'Quiero saber sobre el curso de inglés'},
-      {type:'bot',text:'Tenemos niveles desde principiante hasta avanzado. Clases 3 veces por semana, $18.000/mes. ¿Arrancás el mes que viene?'},
-      {type:'user',text:'Sí, me interesa. ¿Cómo me inscribo?'},
-      {type:'bot',text:'Te inscribo ahora mismo. ¿Tu nombre completo y WhatsApp?'},
-      {type:'user',text:'Valentina Cruz, 3764-112233'},
-      {type:'bot',text:'¡Inscripción confirmada, Valentina! Te enviamos el acceso y el cronograma por WhatsApp. ¡Bienvenida! 🌟'},
-      {type:'crm',name:'Valentina Cruz',servicio:'Curso de Inglés',turno:'Próximo mes',tel:'3764-112233',estado:'Inscripta ✅'},
-    ]
-  }
+  clinica:{name:'Sonrisa Perfecta',title:'Clínica Odontológica',desc:'El agente responde preguntas, toma turnos y registra automáticamente cada paciente en HubSpot CRM — sin que nadie intervenga.',feats:['Responde preguntas frecuentes al instante','Toma turnos sin intervención humana','Registra el paciente en HubSpot CRM','Envía confirmación automática'],conversation:[{type:'bot',text:'¡Hola! 👋 Soy el asistente de Sonrisa Perfecta. ¿En qué puedo ayudarte hoy?'},{type:'user',text:'Hola, ¿cuánto sale una limpieza dental?'},{type:'bot',text:'La limpieza dental tiene un costo desde $15.000. Incluye detartraje y pulido profesional. ¿Querés sacar un turno?'},{type:'user',text:'Sí, quiero un turno para el jueves'},{type:'bot',text:'¡Perfecto! ¿Cuál es tu nombre completo y un teléfono de contacto?'},{type:'user',text:'Juan García, 3764-123456'},{type:'bot',text:'¡Listo Juan! Tu turno del jueves quedó agendado. Te enviamos la confirmación por WhatsApp. ✅'},{type:'crm',name:'Juan García',servicio:'Limpieza dental',turno:'Jueves',tel:'3764-123456',estado:'Agendado ✅'}]},
+  hotel:{name:'Hotel Continental',title:'Hotelería',desc:'El agente informa disponibilidad, toma reservas y registra automáticamente cada huésped en el CRM — disponible las 24hs incluso sin recepcionista.',feats:['Consulta disponibilidad en tiempo real','Toma reservas automáticamente','Registra el huésped en HubSpot CRM','Atiende a cualquier hora'],conversation:[{type:'bot',text:'¡Bienvenido al Hotel Continental! 🏨 ¿Cómo puedo ayudarte hoy?'},{type:'user',text:'¿Tienen disponibilidad para este fin de semana?'},{type:'bot',text:'¡Sí! Habitación doble desde $45.000/noche con desayuno incluido. ¿Para cuántas personas?'},{type:'user',text:'Para 2 personas, viernes y sábado'},{type:'bot',text:'2 noches para 2 personas = $90.000 con desayuno. ¿Reservamos? Necesito tu nombre y contacto.'},{type:'user',text:'María López, 3764-654321'},{type:'bot',text:'¡Reserva confirmada, María! Te enviamos los detalles por WhatsApp. ¡Hasta el viernes! 🙌'},{type:'crm',name:'María López',servicio:'Habitación doble 2 noches',turno:'Viernes-Sábado',tel:'3764-654321',estado:'Reservado ✅'}]},
+  restaurante:{name:'La Costanera',title:'Gastronomía',desc:'El agente toma reservas de mesa, muestra el menú y registra cada cliente automáticamente — especialmente útil en los momentos de mayor demanda.',feats:['Reservas de mesa automáticas','Muestra el menú actualizado','Registra el cliente en HubSpot CRM','Envía confirmación al instante'],conversation:[{type:'bot',text:'¡Hola! Bienvenido a La Costanera 🍽️ ¿Reserva de mesa o consulta sobre el menú?'},{type:'user',text:'Quiero reservar para esta noche'},{type:'bot',text:'¡Perfecto! Tenemos disponibilidad. ¿Para cuántas personas y a qué hora?'},{type:'user',text:'4 personas a las 21hs'},{type:'bot',text:'Bien. ¿Tu nombre y teléfono de contacto para confirmar la reserva?'},{type:'user',text:'Carlos Pérez, 3764-789012'},{type:'bot',text:'¡Reserva confirmada, Carlos! Mesa para 4 a las 21hs. Te esperamos esta noche 🎉'},{type:'crm',name:'Carlos Pérez',servicio:'Mesa para 4 personas',turno:'Hoy 21:00hs',tel:'3764-789012',estado:'Confirmado ✅'}]},
+  municipalidad:{name:'Municipalidad de Posadas',title:'Municipios y Organismos',desc:'El agente informa trámites, requisitos y otorga turnos automáticamente — reduciendo hasta el 80% de las llamadas entrantes.',feats:['Informa trámites y requisitos','Otorga turnos automáticamente','Registra al ciudadano en el sistema','Disponible 24hs los 7 días'],conversation:[{type:'bot',text:'¡Hola! Soy el asistente digital de la Municipalidad de Posadas 🏛️ ¿En qué te puedo ayudar?'},{type:'user',text:'Necesito habilitar un comercio, ¿qué necesito?'},{type:'bot',text:'Para habilitar un comercio necesitás: DNI, contrato/escritura del local, plano y formulario de solicitud. ¿Querés sacar un turno?'},{type:'user',text:'Sí, quiero un turno para mañana'},{type:'bot',text:'Turno disponible mañana a las 9hs. ¿Tu nombre y DNI para reservarlo?'},{type:'user',text:'Ana Rodríguez, DNI 30.456.789'},{type:'bot',text:'¡Turno confirmado, Ana! Mañana a las 9hs en Ventanilla 3. Llevá la documentación completa. ✅'},{type:'crm',name:'Ana Rodríguez',servicio:'Habilitación comercial',turno:'Mañana 09:00hs',tel:'DNI 30.456.789',estado:'Turno asignado ✅'}]},
+  colectivos:{name:'Crucero del Norte',title:'Empresas de Transporte',desc:'El agente responde consultas de horarios, recorridos y reclamos automáticamente — sin operadores telefónicos y sin esperas.',feats:['Informa horarios y recorridos al instante','Gestiona reclamos automáticamente','Registra cada consulta en HubSpot CRM','Disponible 24hs los 7 días'],conversation:[{type:'bot',text:'¡Hola! Soy el asistente de Crucero del Norte 🚌 ¿En qué puedo ayudarte?'},{type:'user',text:'¿A qué hora sale el colectivo a Corrientes?'},{type:'bot',text:'Los servicios a Corrientes salen a las 7:00, 13:00 y 20:00hs desde la terminal de Posadas. ¿Querés reservar un pasaje?'},{type:'user',text:'Sí, para mañana a las 7hs'},{type:'bot',text:'Perfecto. ¿Tu nombre y DNI para la reserva?'},{type:'user',text:'Roberto Silva, DNI 28.123.456'},{type:'bot',text:'¡Reserva confirmada, Roberto! Servicio mañana 7:00hs a Corrientes. Presentate 30 min antes. ✅'},{type:'crm',name:'Roberto Silva',servicio:'Pasaje Posadas-Corrientes',turno:'Mañana 07:00hs',tel:'DNI 28.123.456',estado:'Reservado ✅'}]},
+  barberia:{name:'Barbería El Estilo',title:'Barbería y Estética',desc:'El agente toma turnos, informa servicios y precios, y registra cada cliente automáticamente — sin que el barbero tenga que responder mensajes entre cortes.',feats:['Toma turnos automáticamente','Informa servicios y precios','Registra el cliente en HubSpot CRM','Funciona mientras el barbero trabaja'],conversation:[{type:'bot',text:'¡Hola! Bienvenido a Barbería El Estilo ✂️ ¿Querés sacar un turno o consultar precios?'},{type:'user',text:'¿Cuánto sale el corte + barba?'},{type:'bot',text:'El combo corte + barba sale $8.500. También tenemos corte solo por $5.000 y arreglo de barba por $4.000. ¿Sacamos un turno?'},{type:'user',text:'Sí, para mañana a la tarde'},{type:'bot',text:'Tenemos lugar mañana a las 16hs y 17:30hs. ¿Cuál preferís? ¿Y tu nombre?'},{type:'user',text:'A las 16hs, soy Diego Torres'},{type:'bot',text:'¡Listo Diego! Turno mañana a las 16hs para corte + barba. Te esperamos 🔥'},{type:'crm',name:'Diego Torres',servicio:'Corte + Barba',turno:'Mañana 16:00hs',tel:'—',estado:'Agendado ✅'}]},
+  inmobiliaria:{name:'Inmobiliaria Del Sur',title:'Inmobiliarias',desc:'El agente responde consultas de propiedades, coordina visitas y califica leads automáticamente — sin que los asesores pierdan tiempo en consultas básicas.',feats:['Informa propiedades disponibles','Coordina visitas automáticamente','Califica leads y los pasa al asesor','Registra cada interesado en HubSpot CRM'],conversation:[{type:'bot',text:'¡Hola! Soy el asistente de Inmobiliaria Del Sur 🏠 ¿Buscás alquilar o comprar?'},{type:'user',text:'Busco alquilar un departamento en el centro'},{type:'bot',text:'Tenemos departamentos disponibles en el centro desde $150.000/mes. ¿Cuántas habitaciones necesitás?'},{type:'user',text:'2 habitaciones, para 3 personas'},{type:'bot',text:'Perfecto. Tenemos 3 opciones que se ajustan. ¿Querés coordinar una visita? Necesito tu nombre y contacto.'},{type:'user',text:'Lucía Fernández, 3764-555888'},{type:'bot',text:'¡Genial Lucía! Un asesor te contacta en las próximas horas para coordinar la visita. ✅'},{type:'crm',name:'Lucía Fernández',servicio:'Alquiler 2 hab. centro',turno:'Visita a coordinar',tel:'3764-555888',estado:'Lead calificado ✅'}]},
+  academia:{name:'Academia Evolución',title:'Academias y Educación',desc:'El agente informa cursos, precios e inscripciones automáticamente — y registra cada interesado en HubSpot para que el equipo haga el seguimiento.',feats:['Informa cursos y horarios disponibles','Gestiona inscripciones automáticamente','Registra el alumno en HubSpot CRM','Envía información de acceso al instante'],conversation:[{type:'bot',text:'¡Hola! Bienvenido a Academia Evolución 🎓 ¿En qué curso estás interesado?'},{type:'user',text:'Quiero saber sobre el curso de inglés'},{type:'bot',text:'Tenemos niveles desde principiante hasta avanzado. Clases 3 veces por semana, $18.000/mes. ¿Arrancás el mes que viene?'},{type:'user',text:'Sí, me interesa. ¿Cómo me inscribo?'},{type:'bot',text:'Te inscribo ahora mismo. ¿Tu nombre completo y WhatsApp?'},{type:'user',text:'Valentina Cruz, 3764-112233'},{type:'bot',text:'¡Inscripción confirmada, Valentina! Te enviamos el acceso y el cronograma por WhatsApp. ¡Bienvenida! 🌟'},{type:'crm',name:'Valentina Cruz',servicio:'Curso de Inglés',turno:'Próximo mes',tel:'3764-112233',estado:'Inscripta ✅'}]}
 };
 
 let animating=false;
-
 function setDemo(key,btn){
   if(animating)return;
   document.querySelectorAll('.demo-tab').forEach(t=>t.classList.remove('active'));
   btn.classList.add('active');
   const d=demos[key];
-  document.getElementById('demo-info').innerHTML=`
-    <h3>${d.title}</h3>
-    <p>${d.desc}</p>
-    <ul class="demo-feats">${d.feats.map(f=>`<li>${f}</li>`).join('')}</ul>
-  `;
+  document.getElementById('demo-info').innerHTML=`<h3>${d.title}</h3><p>${d.desc}</p><ul class="demo-feats">${d.feats.map(f=>`<li>${f}</li>`).join('')}</ul>`;
   document.getElementById('chat-name').textContent=d.name;
   document.getElementById('chat-msgs').innerHTML='';
   playConversation(d.conversation);
 }
-
 async function playConversation(conv){
   animating=true;
   const msgs=document.getElementById('chat-msgs');
@@ -782,34 +592,66 @@ async function playConversation(conv){
       const t=document.createElement('div');
       t.className='typing show';
       t.innerHTML='<div class="typing-dots"><span></span><span></span><span></span></div>';
-      msgs.appendChild(t);
-      msgs.scrollTop=msgs.scrollHeight;
+      msgs.appendChild(t);msgs.scrollTop=msgs.scrollHeight;
       await sleep(m.type==='crm'?1400:1000);
       msgs.removeChild(t);
     }
     const el=document.createElement('div');
     if(m.type==='crm'){
       el.className='msg-crm';
-      el.innerHTML=`
-        <strong>🗃️ HubSpot CRM — Registro automático</strong>
-        <div class="crm-row"><span>👤 Nombre</span><span><b>${m.name}</b></span></div>
-        <div class="crm-row"><span>📋 Servicio</span><span>${m.servicio}</span></div>
-        <div class="crm-row"><span>📅 Turno</span><span>${m.turno}</span></div>
-        <div class="crm-row"><span>📞 Contacto</span><span>${m.tel}</span></div>
-        <div class="crm-row"><span>✅ Estado</span><span><b>${m.estado}</b></span></div>
-      `;
+      el.innerHTML=`<strong>🗃️ HubSpot CRM — Registro automático</strong><div class="crm-row"><span>👤 Nombre</span><span><b>${m.name}</b></span></div><div class="crm-row"><span>📋 Servicio</span><span>${m.servicio}</span></div><div class="crm-row"><span>📅 Turno</span><span>${m.turno}</span></div><div class="crm-row"><span>📞 Contacto</span><span>${m.tel}</span></div><div class="crm-row"><span>✅ Estado</span><span><b>${m.estado}</b></span></div>`;
     } else {
       el.className=`msg msg-${m.type}`;
       el.textContent=m.text;
     }
-    msgs.appendChild(el);
-    msgs.scrollTop=msgs.scrollHeight;
+    msgs.appendChild(el);msgs.scrollTop=msgs.scrollHeight;
   }
   animating=false;
 }
-
 function sleep(ms){return new Promise(r=>setTimeout(r,ms))}
 window.addEventListener('load',()=>playConversation(demos.clinica.conversation));
+
+// ─── FORMULARIO ──────────────────────────────────────────
+document.getElementById('input-plan').addEventListener('change', function() {
+  if (this.value) this.classList.add('selected')
+})
+
+document.getElementById('neufy-form').addEventListener('submit', function(e) {
+  e.preventDefault()
+  const nombre   = document.getElementById('input-nombre').value.trim()
+  const negocio  = document.getElementById('input-negocio').value.trim()
+  const whatsapp = document.getElementById('input-whatsapp').value.trim()
+  const plan     = document.getElementById('input-plan').value
+  let valido = true
+
+  function v(condicion, errId) {
+    const el = document.getElementById(errId)
+    if (condicion) { el.classList.add('show'); valido = false }
+    else el.classList.remove('show')
+  }
+  v(nombre.length < 2,   'err-nombre')
+  v(negocio.length < 2,  'err-negocio')
+  v(whatsapp.length < 8, 'err-whatsapp')
+  v(plan === '',         'err-plan')
+  if (!valido) return
+
+  const btn = document.getElementById('form-btn')
+  btn.textContent = 'Enviando...'
+  btn.disabled = true
+
+  setTimeout(function() {
+    const planes = {starter:'Starter — USD 50/mes',growth:'Growth — USD 160/mes',pro:'Pro — USD 285/mes',business:'Business — USD 487/mes','no-se':'Sin definir aún'}
+    document.getElementById('neufy-form').style.display = 'none'
+    const s = document.getElementById('form-success')
+    s.style.display = 'block'
+    document.getElementById('success-data').innerHTML = `
+      <span style="display:flex;justify-content:space-between"><span>👤 Nombre</span><b>${nombre}</b></span>
+      <span style="display:flex;justify-content:space-between"><span>🏢 Negocio</span><b>${negocio}</b></span>
+      <span style="display:flex;justify-content:space-between"><span>📱 WhatsApp</span><b>${whatsapp}</b></span>
+      <span style="display:flex;justify-content:space-between"><span>📋 Plan</span><b>${planes[plan]}</b></span>
+    `
+  }, 1200)
+})
 </script>
 </body>
 </html>
