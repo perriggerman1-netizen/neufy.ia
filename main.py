@@ -1,12 +1,35 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-import json
-import os
+from sqlalchemy import create_engine, Column, Integer, String, DateTime
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+from datetime import datetime
 
+# ── Conexión a PostgreSQL ──────────────────────────────
+# Cambiá "neufy1234" por la contraseña que pusiste al instalar PostgreSQL
+DATABASE_URL =  "postgresql://postgres:auto898neuf@localhost:5432/neufy"
+
+engine = create_engine(DATABASE_URL)
+SessionLocal = sessionmaker(bind=engine)
+Base = declarative_base()
+
+# ── Modelo de la tabla leads ───────────────────────────
+class LeadDB(Base):
+    __tablename__ = "leads"
+    id       = Column(Integer, primary_key=True, index=True)
+    nombre   = Column(String)
+    negocio  = Column(String)
+    whatsapp = Column(String)
+    plan     = Column(String)
+    fecha    = Column(DateTime, default=datetime.now)
+
+# Crea la tabla automáticamente si no existe
+Base.metadata.create_all(bind=engine)
+
+# ── App FastAPI ────────────────────────────────────────
 app = FastAPI()
 
-# Esto le permite al formulario hablarle al backend
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -14,7 +37,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Este es el molde de los datos que esperamos recibir
 class Lead(BaseModel):
     nombre: str
     negocio: str
@@ -27,18 +49,14 @@ def hola():
 
 @app.post("/leads")
 def crear_lead(lead: Lead):
-    # Leer los leads existentes
-    if os.path.exists("leads.json"):
-        with open("leads.json", "r") as f:
-            leads = json.load(f)
-    else:
-        leads = []
-
-    # Agregar el nuevo lead
-    leads.append(lead.dict())
-
-    # Guardar todos los leads
-    with open("leads.json", "w") as f:
-        json.dump(leads, f, indent=2)
-
-    return {"mensaje": "Lead guardado correctamente"}
+    db = SessionLocal()
+    nuevo_lead = LeadDB(
+        nombre=lead.nombre,
+        negocio=lead.negocio,
+        whatsapp=lead.whatsapp,
+        plan=lead.plan
+    )
+    db.add(nuevo_lead)
+    db.commit()
+    db.close()
+    return {"mensaje": "Lead guardado en PostgreSQL"}
