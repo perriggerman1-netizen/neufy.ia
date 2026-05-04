@@ -8,7 +8,7 @@ from datetime import datetime
 
 # ── Conexión a PostgreSQL ──────────────────────────────
 # Cambiá "neufy1234" por la contraseña que pusiste al instalar PostgreSQL
-DATABASE_URL = "postgresql://postgres:neufy2026@localhost:5432/neufy"
+DATABASE_URL = "postgresql://postgres:auto898neuf@localhost:5432/Neufy"
 
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(bind=engine)
