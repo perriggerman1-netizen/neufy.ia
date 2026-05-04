@@ -60,3 +60,5 @@ def crear_lead(lead: Lead):
     db.commit()
     db.close()
     return {"mensaje": "Lead guardado en PostgreSQL"}
+    Base.metadata.create_all(bind=engine)
+    
