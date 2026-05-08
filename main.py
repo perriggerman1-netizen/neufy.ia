@@ -5,6 +5,7 @@ from sqlalchemy import create_engine, Column, Integer, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime
+from typing import List
 
 # ── Conexión a PostgreSQL ──────────────────────────────
 # Cambiá "neufy1234" por la contraseña que pusiste al instalar PostgreSQL
@@ -60,5 +61,6 @@ def crear_lead(lead: Lead):
     db.commit()
     db.close()
     return {"mensaje": "Lead guardado en PostgreSQL"}
+   
     Base.metadata.create_all(bind=engine)
     
