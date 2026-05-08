@@ -63,4 +63,22 @@ def crear_lead(lead: Lead):
     return {"mensaje": "Lead guardado en PostgreSQL"}
    
     Base.metadata.create_all(bind=engine)
+    @app.get("/leads")
+def obtener_leads():
+    db = SessionLocal()
+    leads = db.query(LeadDB).all()
+    db.close()
+
+    resultado = []
+    for lead in leads:
+        resultado.append({
+            "id": lead.id,
+            "nombre": lead.nombre,
+            "negocio": lead.negocio,
+            "whatsapp": lead.whatsapp,
+            "plan": lead.plan,
+            "fecha": lead.fecha
+        })
+
+    return resultado
     
