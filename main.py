@@ -5,10 +5,8 @@ from sqlalchemy import create_engine, Column, Integer, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime
-from typing import List
 
 # ── Conexión a PostgreSQL ──────────────────────────────
-# Cambiá "neufy1234" por la contraseña que pusiste al instalar PostgreSQL
 DATABASE_URL = "postgresql://postgres:auto898neuf@localhost:5432/Neufy"
 
 engine = create_engine(DATABASE_URL)
@@ -25,7 +23,6 @@ class LeadDB(Base):
     plan     = Column(String)
     fecha    = Column(DateTime, default=datetime.now)
 
-# Crea la tabla automáticamente si no existe
 Base.metadata.create_all(bind=engine)
 
 # ── App FastAPI ────────────────────────────────────────
@@ -61,9 +58,8 @@ def crear_lead(lead: Lead):
     db.commit()
     db.close()
     return {"mensaje": "Lead guardado en PostgreSQL"}
-   
-    Base.metadata.create_all(bind=engine)
-    @app.get("/leads")
+
+@app.get("/leads")
 def obtener_leads():
     db = SessionLocal()
     leads = db.query(LeadDB).all()
@@ -81,4 +77,3 @@ def obtener_leads():
         })
 
     return resultado
-    
