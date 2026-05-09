@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Leads - Neufy</title>
+</head>
+<body>
+    <h1>Leads recibidos</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Negocio</th>
+                <th>WhatsApp</th>
+                <th>Plan</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody id="tabla-leads">
+        </tbody>
+    </table>
+
+    <script>
+        fetch("http://127.0.0.1:8000/leads")
+            .then(response => response.json())
+            .then(data => {
+                const tabla = document.getElementById("tabla-leads");
+
+                data.forEach(lead => {
+                    const fila = document.createElement("tr");
+
+                    fila.innerHTML = `
+                        <td>${lead.id}</td>
+                        <td>${lead.nombre}</td>
+                        <td>${lead.negocio}</td>
+                        <td>${lead.whatsapp}</td>
+                        <td>${lead.plan}</td>
+                        <td>${lead.fecha}</td>
+                    `;
+
+                    tabla.appendChild(fila);
+                });
+            });
+    </script>
+</body>
+</html>
