@@ -1,257 +1,77 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Neufy — Automatización con IA para tu Negocio</title>
-  <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --orange:#F26522;--orange-dark:#D4521A;--orange-light:#FF8A4C;
-  --w100:#FFFFFF;--w80:rgba(255,255,255,.80);--w60:rgba(255,255,255,.60);
-  --w30:rgba(255,255,255,.30);--w15:rgba(255,255,255,.15);--w08:rgba(255,255,255,.08);
-}
-html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--orange);color:var(--w100);overflow-x:hidden}
-
-/* NAV */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:18px 60px;
-  background:rgba(242,101,34,.88);backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--w15);
-}
-.nav-logo{display:flex;align-items:center;text-decoration:none}
-.nav-logo svg{height:32px;width:auto}
-.nav-links{display:flex;gap:32px}
-.nav-links a{font-size:14px;color:var(--w80);text-decoration:none;font-weight:500;transition:color .2s}
-.nav-links a:hover{color:var(--w100)}
-.nav-cta{
-  background:var(--w100);color:var(--orange);border:none;
-  padding:10px 24px;border-radius:100px;font-size:14px;font-weight:700;
-  cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;
-}
-.nav-cta:hover{background:rgba(255,255,255,.9);transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.15)}
-
-/* HERO */
-.hero{
-  min-height:100vh;display:flex;align-items:center;
-  padding:140px 60px 100px;position:relative;overflow:hidden;
-}
-.hero::after{
-  content:'';position:absolute;right:-100px;top:-100px;
-  width:700px;height:700px;border-radius:50%;
-  background:radial-gradient(circle,rgba(255,255,255,.07) 0%,transparent 70%);
-  pointer-events:none;
-}
-.hero-content{position:relative;z-index:1;max-width:580px}
-.hero-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  background:var(--w15);border:1px solid var(--w30);
-  padding:7px 16px;border-radius:100px;margin-bottom:32px;
-}
-.badge-dot{width:7px;height:7px;background:white;border-radius:50%;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
-.hero-badge span{font-size:13px;color:var(--w100);font-weight:600;letter-spacing:.3px}
-.hero h1{
-  font-family:'Inter',sans-serif;font-weight:800;
-  font-size:clamp(44px,5.5vw,74px);line-height:1.05;
-  color:var(--w100);margin-bottom:28px;letter-spacing:-2px;
-}
-.hero h1 em{font-style:normal;position:relative;display:inline-block}
-.hero h1 em::after{
-  content:'';position:absolute;bottom:4px;left:0;right:0;
-  height:4px;background:rgba(255,255,255,.35);border-radius:2px;
-}
-.hero p{font-size:18px;color:var(--w80);line-height:1.7;margin-bottom:44px;font-weight:300;max-width:460px}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
-.btn-w{
-  background:var(--w100);color:var(--orange);border:none;
-  padding:15px 30px;border-radius:100px;font-size:15px;font-weight:700;
-  cursor:pointer;transition:all .25s;font-family:'DM Sans',sans-serif;
-  text-decoration:none;display:inline-flex;align-items:center;gap:8px;
-}
-.btn-w:hover{background:rgba(255,255,255,.9);transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,0,0,.18)}
-.btn-o{
-  background:transparent;color:var(--w100);border:1.5px solid var(--w30);
-  padding:15px 30px;border-radius:100px;font-size:15px;font-weight:500;
-  cursor:pointer;transition:all .25s;font-family:'DM Sans',sans-serif;
-  text-decoration:none;display:inline-flex;align-items:center;gap:8px;
-}
-.btn-o:hover{background:var(--w15);border-color:var(--w60)}
-
-/* ROBOT */
-.hero-robot{
-  position:absolute;right:80px;top:50%;transform:translateY(-50%);
-  z-index:1;animation:float 4s ease-in-out infinite;
-}
-@keyframes float{0%,100%{transform:translateY(-50%) translateY(0)}50%{transform:translateY(-50%) translateY(-18px)}}
-
-/* STATS */
-.stats{
-  padding:52px 60px;background:var(--w08);
-  border-top:1px solid var(--w15);border-bottom:1px solid var(--w15);
-  display:flex;justify-content:center;gap:72px;flex-wrap:wrap;
-}
-.stat{text-align:center}
-.stat-n{font-family:'Inter',sans-serif;font-size:42px;font-weight:800;color:var(--w100);line-height:1}
-.stat-l{font-size:13px;color:var(--w60);margin-top:6px;font-weight:400}
-
-/* SECTIONS */
-section{padding:96px 60px;position:relative}
-.lbl{font-size:11px;font-weight:700;letter-spacing:4px;color:var(--w60);text-transform:uppercase;margin-bottom:16px}
-.ttl{font-family:'Inter',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:800;line-height:1.2;padding-bottom:8px;letter-spacing:-1.5px;color:var(--w100);margin-bottom:16px;overflow:visible}
-.sub{font-size:17px;color:var(--w80);font-weight:300;line-height:1.7;max-width:500px}
-.div{width:48px;height:3px;background:var(--w30);border-radius:2px;margin:20px 0 0}
-
-/* COMO FUNCIONA */
-.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
-.how-card{padding:36px 28px;background:var(--w08);border:1px solid var(--w15);border-radius:22px;transition:all .3s;}
-.how-card:hover{background:var(--w15);transform:translateY(-5px)}
-.how-n{font-family:'Inter',sans-serif;font-size:50px;font-weight:800;color:var(--w30);line-height:1;margin-bottom:18px}
-.how-card h3{font-family:'Inter',sans-serif;font-size:19px;font-weight:700;margin-bottom:10px;color:var(--w100)}
-.how-card p{font-size:15px;color:var(--w60);line-height:1.65;font-weight:300}
-
-/* AUTOMATIZACIONES */
-.auto-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:56px}
-.auto-card{padding:32px 28px;background:var(--w08);border:1px solid var(--w15);border-radius:22px;transition:all .3s;display:flex;gap:18px;align-items:flex-start;}
-.auto-card:hover{background:var(--w15);transform:translateY(-4px)}
-.auto-icon{font-size:32px;flex-shrink:0;margin-top:2px}
-.auto-card h4{font-family:'Inter',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px;color:var(--w100)}
-.auto-card p{font-size:14px;color:var(--w60);line-height:1.6;font-weight:300}
-
-/* DEMOS */
-.demos-tabs{display:flex;gap:8px;margin:44px 0 36px;flex-wrap:wrap}
-.demo-tab{padding:10px 20px;border-radius:100px;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;border:1.5px solid var(--w30);background:transparent;color:var(--w80);font-family:'DM Sans',sans-serif;}
-.demo-tab.active{background:var(--w100);color:var(--orange);border-color:var(--w100)}
-.demo-tab:hover:not(.active){background:var(--w15);color:var(--w100)}
-.demo-container{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.demo-info h3{font-family:'Inter',sans-serif;font-size:28px;font-weight:800;margin-bottom:14px;color:var(--w100)}
-.demo-info p{font-size:16px;color:var(--w80);line-height:1.7;margin-bottom:24px;font-weight:300}
-.demo-feats{list-style:none;display:flex;flex-direction:column;gap:10px}
-.demo-feats li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--w80)}
-.demo-feats li::before{content:'✓';width:22px;height:22px;background:var(--w15);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--w100);font-size:11px;font-weight:700;flex-shrink:0;line-height:22px;text-align:center;border:1px solid var(--w30);}
-
-/* CHAT WIDGET */
-.chat-widget{background:white;border-radius:24px;box-shadow:0 32px 80px rgba(0,0,0,.28);overflow:hidden;max-width:380px;margin-left:auto;}
-.chat-hdr{background:var(--orange-dark);padding:15px 18px;display:flex;align-items:center;gap:12px;}
-.chat-av{width:36px;height:36px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px}
-.chat-hdr-info h4{color:white;font-size:13px;font-weight:600}
-.chat-hdr-info span{color:rgba(255,255,255,.7);font-size:11px}
-.chat-st{margin-left:auto;display:flex;align-items:center;gap:5px;font-size:11px;color:rgba(255,255,255,.85)}
-.chat-st-dot{width:7px;height:7px;background:#4ADE80;border-radius:50%;animation:pulse 2s infinite}
-.chat-msgs{padding:18px;min-height:300px;display:flex;flex-direction:column;gap:10px;background:#F9F9F9;overflow-y:auto;max-height:300px}
-.msg{max-width:84%;animation:fadeUp .35s ease}
-@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.msg-bot{align-self:flex-start;background:white;border-radius:16px 16px 16px 4px;padding:10px 13px;font-size:13px;color:#1a1a1a;box-shadow:0 2px 8px rgba(0,0,0,.06);line-height:1.5}
-.msg-user{align-self:flex-end;background:var(--orange);border-radius:16px 16px 4px 16px;padding:10px 13px;font-size:13px;color:white;line-height:1.5}
-.msg-crm{align-self:stretch;background:linear-gradient(135deg,#f0fff4,#e6f4ed);border:1px solid #86efac;border-radius:12px;padding:12px 14px;font-size:12px;color:#166534;line-height:1.5;animation:fadeUp .5s ease;}
-.msg-crm strong{display:block;font-size:13px;margin-bottom:6px;color:#15803d}
-.msg-crm .crm-row{display:flex;justify-content:space-between;margin-top:3px;font-size:11.5px}
-.typing{align-self:flex-start;background:white;border-radius:16px 16px 16px 4px;padding:12px 15px;box-shadow:0 2px 8px rgba(0,0,0,.06);display:none}
-.typing.show{display:block}
-.typing-dots{display:flex;gap:4px}
-.typing-dots span{width:7px;height:7px;background:#ccc;border-radius:50%;animation:bounce 1.2s infinite}
-.typing-dots span:nth-child(2){animation-delay:.2s}
-.typing-dots span:nth-child(3){animation-delay:.4s}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-.chat-inp{padding:13px 15px;border-top:1px solid #eee;display:flex;gap:8px;align-items:center;background:white}
-.chat-inp input{flex:1;border:1px solid #e8e8e8;border-radius:100px;padding:9px 15px;font-size:13px;outline:none;font-family:'DM Sans',sans-serif;color:#999}
-.chat-send{width:34px;height:34px;background:var(--orange);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center}
-.chat-send svg{width:15px;height:15px;fill:white}
-
-/* PLANES */
-.plans-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
-.plan-card{border:1.5px solid var(--w15);border-radius:22px;padding:30px 24px;transition:all .3s;position:relative;background:var(--w08);}
-.plan-card.featured{background:var(--w100);border-color:var(--w100)}
-.plan-card:hover:not(.featured){background:var(--w15)}
-.plan-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--orange-dark);color:white;padding:4px 16px;border-radius:100px;font-size:11px;font-weight:700;white-space:nowrap;letter-spacing:.5px;text-transform:uppercase;}
-.plan-nm{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;color:var(--w60)}
-.plan-card.featured .plan-nm{color:var(--orange)}
-.plan-price{font-family:'Inter',sans-serif;font-size:38px;font-weight:800;line-height:1;margin-bottom:6px;color:var(--w100)}
-.plan-price span{font-size:14px;font-weight:400;color:var(--w60)}
-.plan-card.featured .plan-price{color:var(--orange)}
-.plan-card.featured .plan-price span{color:#999}
-.plan-desc{font-size:12px;color:var(--w60);margin-bottom:22px;line-height:1.55}
-.plan-card.featured .plan-desc{color:#777}
-.plan-feats{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:26px}
-.plan-feats li{display:flex;align-items:flex-start;gap:8px;font-size:12.5px;color:var(--w80);line-height:1.4}
-.plan-card.featured .plan-feats li{color:#444}
-.plan-feats li::before{content:'✓';color:var(--w100);font-weight:700;font-size:11px;margin-top:1px;flex-shrink:0}
-.plan-card.featured .plan-feats li::before{color:var(--orange)}
-.plan-btn{width:100%;padding:12px;border-radius:100px;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;border:none}
-.plan-btn-ow{background:transparent;border:1.5px solid var(--w30);color:var(--w100)}
-.plan-btn-ow:hover{background:var(--w15);border-color:var(--w60)}
-.plan-btn-or{background:var(--orange);color:white}
-.plan-btn-or:hover{background:var(--orange-dark);transform:translateY(-1px)}
-
-/* RUBROS */
-.rubros-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:52px}
-.rubro-card{padding:26px 22px;border:1px solid var(--w15);border-radius:16px;transition:all .25s;background:var(--w08);}
-.rubro-card:hover{background:var(--w15);transform:translateY(-4px)}
-.rubro-icon{font-size:26px;margin-bottom:10px}
-.rubro-card h4{font-family:'Inter',sans-serif;font-size:15px;font-weight:700;margin-bottom:5px;color:var(--w100)}
-.rubro-card p{font-size:12.5px;color:var(--w60);line-height:1.5}
-
-/* FORMULARIO DE CONTACTO */
-.field{display:flex;flex-direction:column;gap:6px}
-.field label{font-size:12px;font-weight:600;color:var(--w100);padding-left:4px;letter-spacing:.2px}
-.field input,.field select{
-  width:100%;padding:13px 18px;border-radius:100px;
-  border:1.5px solid var(--w30);background:var(--w08);
-  color:var(--w100);font-size:14px;font-family:'DM Sans',sans-serif;
-  outline:none;transition:border-color .2s,background .2s;
-  appearance:none;-webkit-appearance:none;
-}
-.field input::placeholder{color:var(--w60)}
-.field input:focus,.field select:focus{border-color:var(--w60);background:var(--w15)}
-.field select{color:var(--w60);cursor:pointer}
-.field select.selected{color:var(--w100)}
-.field select option{background:var(--orange-dark);color:white}
-.form-error{font-size:12px;color:#FFB4A0;padding-left:4px;display:none;margin-top:2px}
-.form-error.show{display:block}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-
-/* CTA / FOOTER */
-.cta-sec{background:var(--w08);border-top:1px solid var(--w15);text-align:center;padding:110px 60px 120px}
-footer{padding:32px 60px;border-top:1px solid var(--w15);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
-footer p{font-size:12px;color:var(--w60)}
-.footer-logo svg{height:26px;width:auto}
-
-/* MOBILE */
-@media(max-width:768px){
-  nav{padding:14px 20px}
-  .nav-links{display:none}
-  .hero{padding:100px 20px 64px}
-  .hero-robot{display:none}
-  section{padding:60px 20px}
-  .how-grid{grid-template-columns:1fr}
-  .auto-grid{grid-template-columns:1fr}
-  .demo-container{grid-template-columns:1fr}
-  .chat-widget{max-width:100%;margin:0}
-  .plans-grid{grid-template-columns:1fr}
-  .plan-card.featured{transform:scale(1)}
-  .rubros-grid{grid-template-columns:1fr 1fr}
-  .stats{padding:36px 20px;gap:32px}
-  footer{flex-direction:column;text-align:center;padding:24px 20px}
-  .hero h1{letter-spacing:-1px}
-  .form-row{grid-template-columns:1fr}
-  .cta-sec{padding:60px 20px}
-}
-@media(max-width:480px){
-  .rubros-grid{grid-template-columns:1fr}
-  .hero-btns{flex-direction:column}
-  .btn-w,.btn-o{justify-content:center}
-}
-</style>
-
-  <!-- Fuentes -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <!-- TU CSS -->
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>Neufy IA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  </html>
+
+<header class="header">
+    <div class="container">
+        <h1 class="logo">NEUFY IA</h1>
+        <nav>
+            <a href="#servicios">Servicios</a>
+            <a href="#formulario">Contacto</a>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h2>Empleados Digitales con IA para tu negocio</h2>
+        <p>Automatizamos atención al cliente, ventas, marketing y procesos internos.</p>
+        <a href="#formulario" class="btn">Quiero automatizar</a>
+    </div>
+</section>
+
+<section id="servicios" class="servicios">
+    <div class="container cards">
+        <div class="card">
+            <h3>Chatbot IA</h3>
+            <p>Atiende clientes 24/7 por WhatsApp y web.</p>
+        </div>
+        <div class="card">
+            <h3>Generador de Leads</h3>
+            <p>Capta clientes automáticamente desde redes.</p>
+        </div>
+        <div class="card">
+            <h3>Videos Virales</h3>
+            <p>Contenido automático para redes sociales.</p>
+        </div>
+        <div class="card">
+            <h3>Gestor de Redes</h3>
+            <p>Publicaciones y respuestas con IA.</p>
+        </div>
+    </div>
+</section>
+
+<section id="formulario" class="formulario">
+    <div class="container">
+        <h2>Dejanos tus datos</h2>
+
+        <!-- ⚠️ ESTE FORM ES EL TUYO, NO TOCAR NOMBRES NI ACTION -->
+        <form action="/api/leads" method="POST" class="lead-form">
+            <input type="text" name="nombre" placeholder="Tu nombre" required>
+            <input type="text" name="negocio" placeholder="Tu negocio" required>
+            <input type="text" name="whatsapp" placeholder="WhatsApp" required>
+            <select name="plan">
+                <option value="Basico">Básico</option>
+                <option value="Pro">Pro</option>
+                <option value="Premium">Premium</option>
+            </select>
+            <button type="submit">Enviar</button>
+        </form>
+
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <p>© 2026 Neufy IA - Automatizaciones inteligentes</p>
+    </div>
+</footer>
+
+</body>
+</html>
