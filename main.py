@@ -76,4 +76,4 @@ def obtener_leads():
             "fecha": lead.fecha
         })
 
-    return resultado
+    return resultado-
