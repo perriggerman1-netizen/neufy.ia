@@ -1,76 +1,61 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Neufy IA</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Neufy IA</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
 <header class="header">
-    <div class="container">
-        <h1 class="logo">NEUFY IA</h1>
-        <nav>
-            <a href="#servicios">Servicios</a>
-            <a href="#formulario">Contacto</a>
-        </nav>
-    </div>
+  <div class="container nav">
+    <div class="logo">NEUFY IA</div>
+    <a href="#formulario" class="nav-btn">Automatizar mi negocio</a>
+  </div>
 </header>
 
 <section class="hero">
-    <div class="container">
-        <h2>Empleados Digitales con IA para tu negocio</h2>
-        <p>Automatizamos atención al cliente, ventas, marketing y procesos internos.</p>
-        <a href="#formulario" class="btn">Quiero automatizar</a>
-    </div>
+  <div class="container hero-content">
+    <h1>Contratá Empleados Digitales con IA</h1>
+    <p>Automatización real para atención al cliente, ventas, marketing y procesos internos.</p>
+    <a href="#formulario" class="cta">Empezar ahora</a>
+  </div>
 </section>
 
-<section id="servicios" class="servicios">
-    <div class="container cards">
-        <div class="card">
-            <h3>Chatbot IA</h3>
-            <p>Atiende clientes 24/7 por WhatsApp y web.</p>
-        </div>
-        <div class="card">
-            <h3>Generador de Leads</h3>
-            <p>Capta clientes automáticamente desde redes.</p>
-        </div>
-        <div class="card">
-            <h3>Videos Virales</h3>
-            <p>Contenido automático para redes sociales.</p>
-        </div>
-        <div class="card">
-            <h3>Gestor de Redes</h3>
-            <p>Publicaciones y respuestas con IA.</p>
-        </div>
-    </div>
+<section class="grid-servicios">
+  <div class="container grid">
+    <div class="card"><h3>Chatbot IA</h3><p>Atención 24/7 automática.</p></div>
+    <div class="card"><h3>Leads Automáticos</h3><p>Clientes desde redes sin esfuerzo.</p></div>
+    <div class="card"><h3>Videos Virales</h3><p>Contenido IA diario.</p></div>
+    <div class="card"><h3>Gestión de RRSS</h3><p>Publicaciones y respuestas.</p></div>
+    <div class="card"><h3>Automatización Interna</h3><p>Procesos sin empleados.</p></div>
+    <div class="card"><h3>CRM Inteligente</h3><p>Seguimiento automático.</p></div>
+  </div>
 </section>
 
-<section id="formulario" class="formulario">
-    <div class="container">
-        <h2>Dejanos tus datos</h2>
+<section id="formulario" class="form-section">
+  <div class="container form-box">
+    <h2>Dejanos tus datos y te contactamos</h2>
 
-        <!-- ⚠️ ESTE FORM ES EL TUYO, NO TOCAR NOMBRES NI ACTION -->
-        <form action="/api/leads" method="POST" class="lead-form">
-            <input type="text" name="nombre" placeholder="Tu nombre" required>
-            <input type="text" name="negocio" placeholder="Tu negocio" required>
-            <input type="text" name="whatsapp" placeholder="WhatsApp" required>
-            <select name="plan">
-                <option value="Basico">Básico</option>
-                <option value="Pro">Pro</option>
-                <option value="Premium">Premium</option>
-            </select>
-            <button type="submit">Enviar</button>
-        </form>
+    <!-- FORM ORIGINAL -->
+    <form action="/api/leads" method="POST" class="lead-form">
+      <input type="text" name="nombre" placeholder="Tu nombre" required>
+      <input type="text" name="negocio" placeholder="Tu negocio" required>
+      <input type="text" name="whatsapp" placeholder="WhatsApp" required>
+      <select name="plan">
+        <option value="Basico">Básico</option>
+        <option value="Pro">Pro</option>
+        <option value="Premium">Premium</option>
+      </select>
+      <button type="submit">Enviar</button>
+    </form>
 
-    </div>
+  </div>
 </section>
 
 <footer class="footer">
-    <div class="container">
-        <p>© 2026 Neufy IA - Automatizaciones inteligentes</p>
-    </div>
+  © 2026 Neufy IA
 </footer>
 
 </body>
