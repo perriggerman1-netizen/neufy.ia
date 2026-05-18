@@ -1,0 +1,78 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+}
+
+/* ===== BASE ===== */
+body {
+  background: #0d0f14;
+  color: #ffffff;
+}
+
+/* ===== CONTENEDOR ===== */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* ===== HEADER ===== */
+header {
+  padding: 20px 0;
+  border-bottom: 1px solid #1f2430;
+}
+
+/* ===== HERO ===== */
+.hero {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  color: #9aa4b2;
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+/* ===== BOTÓN ===== */
+.button {
+  background: #4f46e5;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.button:hover {
+  opacity: 0.85;
+}
+
+/* ===== SECCIONES ===== */
+.section {
+  padding: 80px 0;
+}
+
+/* ===== TARJETAS ===== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #161a23;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #1f2430;
+}
